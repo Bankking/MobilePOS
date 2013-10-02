@@ -41,7 +41,6 @@
             android:layout_weight="0.25"
             android:text="Customer"
             android:textSize="12sp" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -53,30 +52,21 @@
             android:id="@+id/inventory_additem"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_weight="0.33"
+            android:layout_weight="0.50"
             android:text="Add"
-            android:textSize="12sp" />
-
-        <Button
-            android:id="@+id/inventory_remove"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_weight="0.33"
-            android:text="Remove"
             android:textSize="12sp" />
 
         <Button
             android:id="@+id/inventory_search"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_weight="0.33"
+            android:layout_weight="0.50"
             android:text="Search"
             android:textSize="12sp" />
-
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="267dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
@@ -86,7 +76,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1" >
         </ListView>
-
     </LinearLayout>
 
 </LinearLayout>

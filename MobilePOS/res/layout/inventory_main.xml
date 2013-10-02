@@ -1,108 +1,78 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity" >
+    android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/bt1"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="Button"
-        android:width="75dp" />
-
-    <Button
-        android:id="@+id/bt4"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/bt1"
-        android:layout_alignBottom="@+id/bt1"
-        android:layout_toRightOf="@+id/bt1"
-        android:text="Button"
-        android:width="70dp" />
-
-    <Button
-        android:id="@+id/bt3"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/bt4"
-        android:layout_alignBottom="@+id/bt4"
-        android:layout_toRightOf="@+id/bt4"
-        android:text="Button"
-        android:width="70dp" />
-
-    <Button
-        android:id="@+id/bt2"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/bt3"
-        android:layout_alignBottom="@+id/bt3"
-        android:layout_toRightOf="@+id/bt3"
-        android:text="Button"
-        android:width="70dp" />
-
-    <Button
-        android:id="@+id/btAdd"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/bt1"
-        android:layout_toLeftOf="@+id/bt3"
-        android:text="ADD"
-        android:width="100dp" />
-
-    <Button
-        android:id="@+id/btRemove"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/bt3"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/btAdd"
-        android:text="SEARCH" />
-
-    <AutoCompleteTextView
-        android:id="@+id/autoEditSearch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/btAdd"
-        android:ems="10"
-        android:text="search..." >
-
-        <requestFocus />
-    </AutoCompleteTextView>
-
-    <Button
-        android:id="@+id/btRenove"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/listView1"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/bt2"
-        android:text="REMOVE" />
-
-    <ListView
-        android:id="@+id/listView1"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btRenove"
-        android:layout_alignLeft="@+id/btAdd"
-        android:layout_below="@+id/autoEditSearch" >
+        android:layout_gravity="center"
+        android:orientation="horizontal" >
 
-    </ListView>
+        <Button
+            android:id="@+id/Sale"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_weight="0.25"
+            android:text="Sale"
+            android:textSize="12sp" />
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/inventory"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_weight="0.25"
+            android:text="Inventory"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/saleHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_weight="0.25"
+            android:text="Sale-History"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/customer"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_weight="0.25"
+            android:text="Customer"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/inventory_additem"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_weight="0.33"
+            android:text="Add"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/inventory_remove"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_weight="0.33"
+            android:text="Remove"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/inventory_search"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_weight="0.33"
+            android:text="Search"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

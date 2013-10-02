@@ -8,9 +8,68 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <TextView
+    <Button
+        android:id="@+id/bt1"
+        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Button"
+        android:width="75dp" />
+
+    <Button
+        android:id="@+id/bt4"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/bt1"
+        android:layout_alignBottom="@+id/bt1"
+        android:layout_toRightOf="@+id/bt1"
+        android:text="Button"
+        android:width="70dp" />
+
+    <Button
+        android:id="@+id/bt3"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/bt4"
+        android:layout_alignBottom="@+id/bt4"
+        android:layout_toRightOf="@+id/bt4"
+        android:text="Button"
+        android:width="70dp" />
+
+    <Button
+        android:id="@+id/bt2"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/bt3"
+        android:layout_alignBottom="@+id/bt3"
+        android:layout_toRightOf="@+id/bt3"
+        android:text="Button"
+        android:width="70dp" />
+
+    <Button
+        android:id="@+id/btAdd"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/bt1"
+        android:text="ADD"
+        android:width="100dp" />
+
+    <EditText
+        android:id="@+id/editAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btAdd"
+        android:layout_toRightOf="@+id/btAdd"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
 
 </RelativeLayout>

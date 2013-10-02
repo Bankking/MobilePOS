@@ -8,9 +8,101 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <TextView 
+    <Button
+        android:id="@+id/bt1"
+        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Button"
+        android:width="75dp" />
+
+    <Button
+        android:id="@+id/bt4"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/bt1"
+        android:layout_alignBottom="@+id/bt1"
+        android:layout_toRightOf="@+id/bt1"
+        android:text="Button"
+        android:width="70dp" />
+
+    <Button
+        android:id="@+id/bt3"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/bt4"
+        android:layout_alignBottom="@+id/bt4"
+        android:layout_toRightOf="@+id/bt4"
+        android:text="Button"
+        android:width="70dp" />
+
+    <Button
+        android:id="@+id/bt2"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/bt3"
+        android:layout_alignBottom="@+id/bt3"
+        android:layout_toRightOf="@+id/bt3"
+        android:text="Button"
+        android:width="70dp" />
+
+    <Button
+        android:id="@+id/btAdd"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/bt1"
+        android:layout_toLeftOf="@+id/bt3"
+        android:text="ADD"
+        android:width="100dp" />
+
+    <Button
+        android:id="@+id/btRemove"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/bt3"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/btAdd"
+        android:text="SEARCH" />
+
+    <AutoCompleteTextView
+        android:id="@+id/autoEditSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/btAdd"
+        android:ems="10"
+        android:text="search..." >
+
+        <requestFocus />
+    </AutoCompleteTextView>
+
+    <Button
+        android:id="@+id/btRenove"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/listView1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/bt2"
+        android:text="REMOVE" />
+
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btRenove"
+        android:layout_alignLeft="@+id/btAdd"
+        android:layout_below="@+id/autoEditSearch" >
+
+    </ListView>
 
 </RelativeLayout>

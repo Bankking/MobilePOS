@@ -58,18 +58,51 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/bt1"
+        android:layout_toLeftOf="@+id/bt3"
         android:text="ADD"
         android:width="100dp" />
 
-    <EditText
-        android:id="@+id/editAdd"
+    <Button
+        android:id="@+id/btRemove"
+        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/btAdd"
-        android:layout_toRightOf="@+id/btAdd"
-        android:ems="10" >
+        android:layout_alignLeft="@+id/bt3"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/btAdd"
+        android:text="SEARCH" />
+
+    <AutoCompleteTextView
+        android:id="@+id/autoEditSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/btAdd"
+        android:ems="10"
+        android:text="search..." >
 
         <requestFocus />
-    </EditText>
+    </AutoCompleteTextView>
+
+    <Button
+        android:id="@+id/btRenove"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/listView1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/bt2"
+        android:text="REMOVE" />
+
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btRenove"
+        android:layout_alignLeft="@+id/btAdd"
+        android:layout_below="@+id/autoEditSearch" >
+
+    </ListView>
 
 </RelativeLayout>

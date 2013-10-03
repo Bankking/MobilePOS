@@ -49,7 +49,7 @@
         android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/inventory_additem"
+            android:id="@+id/inventory_b_additem"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_weight="0.50"
@@ -57,7 +57,7 @@
             android:textSize="12sp" />
 
         <Button
-            android:id="@+id/inventory_search"
+            android:id="@+id/inventory_b_search"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_weight="0.50"

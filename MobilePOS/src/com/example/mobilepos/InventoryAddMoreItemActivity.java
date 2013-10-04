@@ -21,6 +21,7 @@ public class InventoryAddMoreItemActivity extends Activity {
 	private EditText itemBrand;
 	private EditText itemPrice;
 	private Button confirmButton;
+	private Button cancelButton;
 	private Item newItem;
 	private List<Item> inventory;
 	
@@ -36,8 +37,20 @@ public class InventoryAddMoreItemActivity extends Activity {
 		itemBrand = (EditText)findViewById(R.id.inventory_amp_f_brand);
 		itemPrice = (EditText)findViewById(R.id.inventory_amp_f_price);
 		confirmButton = (Button)findViewById(R.id.inventory_amp_b_confirm);
+		cancelButton = (Button)findViewById(R.id.inventory_amp_b_cancel);
 		
-		
+		cancelButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				
+				
+				Intent goInventory = new Intent(getApplicationContext(),MainActivity.class);
+				
+				startActivity(goInventory);
+			}
+		});
 		
 		confirmButton.setOnClickListener(new OnClickListener() {
 			

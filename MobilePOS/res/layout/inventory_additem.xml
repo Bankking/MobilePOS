@@ -116,12 +116,12 @@
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:text="Confirm" />
-
+           
            <Button
-               android:id="@+id/inventory_b_reset"
+               android:id="@+id/inventory_amp_b_cancel"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:text="Reset" />
+               android:text="Cancel" />
        </LinearLayout>
            
            

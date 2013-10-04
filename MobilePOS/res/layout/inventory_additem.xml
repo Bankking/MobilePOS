@@ -17,7 +17,7 @@
                android:orientation="horizontal" >
 
                <TextView
-                   android:id="@+id/inventory_t_addmoreproduct"
+                   android:id="@+id/inventory_amp_t_addmoreproduct"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:text="Add More Product"
@@ -30,14 +30,14 @@
                android:orientation="horizontal" >
 
                <TextView
-                   android:id="@+id/inventory_t_amp_qnty"
+                   android:id="@+id/inventory_amp_t_qnty"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:text="Quantity :"
                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
                <EditText
-                   android:id="@+id/inventory_f_amp_qnty"
+                   android:id="@+id/inventory_amp_f_qnty"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:layout_weight="1"
@@ -50,14 +50,14 @@
                android:orientation="horizontal" >
 
                <TextView
-                   android:id="@+id/inventory_t_amp_price"
+                   android:id="@+id/inventory_amp_t_price"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:text="Price :"
                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
                <EditText
-                   android:id="@+id/inventory_f_amp_price"
+                   android:id="@+id/inventory_amp_f_price"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:layout_weight="1"
@@ -70,14 +70,14 @@
                android:orientation="horizontal" >
 
                <TextView
-                   android:id="@+id/inventory_t_amp_name"
+                   android:id="@+id/inventory_amp_t_name"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:text="Name :"
                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
                <EditText
-                   android:id="@+id/inventory_f_amp_name"
+                   android:id="@+id/inventory_amp_f_name"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:layout_weight="1"
@@ -90,14 +90,14 @@
                android:orientation="horizontal" >
 
                <TextView
-                   android:id="@+id/inventory_t_amp_brand"
+                   android:id="@+id/inventory_amp_t_brand"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:text="Brand :"
                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
                <EditText
-                   android:id="@+id/inventory_f_amp_brand"
+                   android:id="@+id/inventory_amp_f_brand"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:layout_weight="1"
@@ -112,7 +112,7 @@
            android:orientation="horizontal" >
 
            <Button
-               android:id="@+id/Button01"
+               android:id="@+id/inventory_amp_b_confirm"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:text="Confirm" />

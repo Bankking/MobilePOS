@@ -4,7 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MockupInventory implements Inventory {
-	public List<Item> itemList = new ArrayList<Item>();
+	private static List<Item> itemList = null;
+	
+	public static List<Item> getInstance(){
+		
+		if (itemList == null) itemList = new ArrayList<Item>();
+		return itemList;
+		
+	}
+	
+	
 	
 	@Override
 	public void addItem(Item i) {
@@ -28,5 +37,15 @@ public class MockupInventory implements Inventory {
 		}
 		return null;
 	}
+
+
+
+	@Override
+	public List<Item> getItemList() {
+		// TODO Auto-generated method stub
+		return itemList;
+	}
+	
+	
 
 }

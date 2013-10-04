@@ -1,11 +1,8 @@
 package com.example.mobilepos;
 
 import java.util.List;
-
-import android.R.anim;
 import android.os.Bundle;
 import android.app.Activity;
-import android.app.ListActivity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
@@ -14,9 +11,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
@@ -24,6 +19,8 @@ public class MainActivity extends Activity {
 	private ListView allItemList;
 	private List<Item> inventory;
 	private String[] inventoryListStringArr;
+	
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,7 +72,7 @@ public class MainActivity extends Activity {
     		             
     		             // Show Alert 
     		             Toast.makeText(getApplicationContext(),
-    		               "Position :"+itemPosition+"  ListItem : " +itemValue , Toast.LENGTH_LONG)
+    		               "Position :"+itemPosition+"  ListItem : " +itemValue+"\nQuantity : "+inventory.get(position).getItemQnty()+" Brand : "+inventory.get(position).getItemBrand() , Toast.LENGTH_LONG)
     		               .show();
     					
     				}

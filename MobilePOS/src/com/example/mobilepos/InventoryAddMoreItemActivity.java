@@ -17,6 +17,9 @@ import android.widget.Toast;
 	
 public class InventoryAddMoreItemActivity extends Activity {
 	private EditText itemName;
+	private EditText itemQnty;
+	private EditText itemBrand;
+	private EditText itemPrice;
 	private Button confirmButton;
 	private Item newItem;
 	private List<Item> inventory;
@@ -29,6 +32,9 @@ public class InventoryAddMoreItemActivity extends Activity {
 		inventory = MockupInventory.getInstance();
 		newItem = new Item();
 		itemName = (EditText)findViewById(R.id.inventory_amp_f_name);
+		itemQnty = (EditText)findViewById(R.id.inventory_amp_f_qnty);
+		itemBrand = (EditText)findViewById(R.id.inventory_amp_f_brand);
+		itemPrice = (EditText)findViewById(R.id.inventory_amp_f_price);
 		confirmButton = (Button)findViewById(R.id.inventory_amp_b_confirm);
 		
 		
@@ -39,8 +45,14 @@ public class InventoryAddMoreItemActivity extends Activity {
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				newItem.setItemName(itemName.getText().toString());
-				Intent goInventory = new Intent(getApplicationContext(),MainActivity.class);
+				newItem.setItemQnty(itemQnty.getText().toString());
+				newItem.setItemBrand(itemBrand.getText().toString());
+				newItem.setItemPrice(itemPrice.getText().toString());
+				
 				inventory.add(newItem);
+				
+				Intent goInventory = new Intent(getApplicationContext(),MainActivity.class);
+				
 				startActivity(goInventory);
 			}
 		});

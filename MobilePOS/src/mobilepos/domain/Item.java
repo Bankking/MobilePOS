@@ -1,4 +1,4 @@
-package com.example.mobilepos;
+package mobilepos.domain;
 
 public class Item {
 	private String itemName;
@@ -29,6 +29,7 @@ public class Item {
 	public int getItemPrice(){
 		return itemPrice;
 	}
+
 	
 
 }

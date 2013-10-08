@@ -1,7 +1,8 @@
-package com.example.mobilepos;
+package mobilepos.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class MockupInventory implements Inventory {
 	private static List<Item> itemList = null;
@@ -28,7 +29,7 @@ public class MockupInventory implements Inventory {
 	}
 
 	@Override
-	public Item getItem(String itemName) {
+	public Item getItemByName(String itemName) {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < itemList.size(); i++) {
 			if (itemList.get(i).getItemName().equals(itemName)){
@@ -36,6 +37,13 @@ public class MockupInventory implements Inventory {
 			}
 		}
 		return null;
+	}
+	
+	public Item getItemByPostion(int i) {
+		// TODO Auto-generated method stub
+		
+				return itemList.get(i);
+			
 	}
 
 

@@ -1,6 +1,11 @@
-package com.example.mobilepos;
+package mobilepos.activity;
 
 import java.util.List;
+
+import mobilepos.domain.Item;
+import mobilepos.domain.MockupInventory;
+
+import com.example.mobilepos.R;
 
 import android.app.Activity;
 import android.app.ListActivity;

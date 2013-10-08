@@ -1,6 +1,13 @@
-package com.example.mobilepos;
+package mobilepos.activity;
 
 import java.util.List;
+
+import mobilepos.domain.CurrentItem;
+import mobilepos.domain.Item;
+import mobilepos.domain.MockupInventory;
+
+import com.example.mobilepos.R;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -16,6 +23,8 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	private Button addButton;
+	private Button inventoryButton;
+	private Button saleButton;
 	private ListView allItemList;
 	private List<Item> inventory;
 	private String[] inventoryListStringArr;
@@ -26,14 +35,21 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.inventory_main);
     	
+        
+        inventoryButton = (Button) findViewById(R.id.inventory);
+        inventoryButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				 Toast.makeText(getApplicationContext(),"Your current page is already Inventory", Toast.LENGTH_LONG)
+  		               .show();
+			}
+        });
+        
         inventory = MockupInventory.getInstance();
         createItemListStringArr();
-    	
        addButton = (Button)findViewById(R.id.inventory_b_additem);
-       
-   
-       
-       
        addButton.setOnClickListener(new OnClickListener() {
 		
     	   
@@ -66,7 +82,17 @@ public class MainActivity extends Activity {
     				public void onItemClick(AdapterView<?> parent, View view,
     		                int position, long id) {
     					// TODO Auto-generated method stub
-    					 int itemPosition     = position;
+    				/*
+    					CurrentItem currentItem = CurrentItem.getInstance();
+    		            currentItem.setCurrentItem(inventory.get(position));
+    		           currentItem.setItemPosition(position);
+    		            
+    		             
+     					Intent goItemInfo = new Intent(getApplicationContext(),InventoryShowItemInfoActivity.class);
+     					
+     					startActivity(goItemInfo);
+    					*/
+    					int itemPosition     = position;
     					 
     					 String  itemValue    = (String)allItemList.getItemAtPosition(position);
     		             
@@ -74,6 +100,7 @@ public class MainActivity extends Activity {
     		             Toast.makeText(getApplicationContext(),
     		               "Position :"+itemPosition+"  ListItem : " +itemValue+"\nQuantity : "+inventory.get(position).getItemQnty()+" Brand : "+inventory.get(position).getItemBrand() , Toast.LENGTH_LONG)
     		               .show();
+    		            
     					
     				}
     			});

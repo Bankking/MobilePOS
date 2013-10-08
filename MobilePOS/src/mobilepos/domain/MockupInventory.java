@@ -59,9 +59,11 @@ public class MockupInventory implements Inventory {
 	@Override
 	public boolean isEmpty() {
 		// TODO Auto-generated method stub
-		if (itemList.size()==0) return false;
-		return true;
+		if (itemList.size()!=0){
+			return false;
+		}
 		
+		return  true;
 	}
 	
 	

@@ -101,8 +101,8 @@ public class SaleMainActivity extends Activity {
   		               .show();
 				}
 				else {
-					Intent goInventoryPage = new Intent(getApplicationContext(),MainActivity.class);
-	    			startActivity(goInventoryPage);
+					Intent goSaleSelectItem = new Intent(getApplicationContext(),SaleSelectItemActivity.class);
+	    			startActivity(goSaleSelectItem);
 				}
 			}
         });

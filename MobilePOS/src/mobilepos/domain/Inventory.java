@@ -9,6 +9,7 @@ public interface Inventory {
 	public Item getItemByName(String itemName);
 	public Item getItemByPostion(int i);
 	public List<Item> getItemList();
+	public boolean isEmpty();
 	
 
 }

@@ -24,6 +24,7 @@
         </activity>
         <activity android:name="mobilepos.activity.InventoryAddMoreItemActivity"></activity>
         <activity android:name="mobilepos.activity.InventoryShowItemInfoActivity"></activity>
+        <activity android:name="mobilepos.activity.SaleMainActivity"></activity>
     </application>
 
 </manifest>

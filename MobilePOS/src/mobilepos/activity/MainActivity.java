@@ -25,6 +25,8 @@ public class MainActivity extends Activity {
 	private Button addButton;
 	private Button inventoryButton;
 	private Button saleButton;
+	private Button customerButton;
+	private Button historyButton;
 	private ListView allItemList;
 	private List<Item> inventory;
 	private String[] inventoryListStringArr;
@@ -37,6 +39,14 @@ public class MainActivity extends Activity {
     	
         
         inventoryButton = (Button) findViewById(R.id.inventory);
+        saleButton = (Button) findViewById(R.id.sale);
+        customerButton = (Button) findViewById(R.id.customer);
+        historyButton = (Button) findViewById(R.id.history);
+        
+        
+        
+        
+        
         inventoryButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -47,10 +57,40 @@ public class MainActivity extends Activity {
 			}
         });
         
+        saleButton.setOnClickListener(new OnClickListener() {
+    		
+      	   
+    		@Override
+    		public void onClick(View v) {
+    			// TODO Auto-generated method stub
+    			Intent goSalePage = new Intent(getApplicationContext(),SaleMainActivity.class);
+    			startActivity(goSalePage);
+    		}
+    	});
+        
+       historyButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				 Toast.makeText(getApplicationContext(),"UnderConstruction", Toast.LENGTH_LONG)
+  		               .show();
+			}
+        });
+       customerButton.setOnClickListener(new OnClickListener() {
+
+    			@Override
+    			public void onClick(View v) {
+    				// TODO Auto-generated method stub
+    				 Toast.makeText(getApplicationContext(),"UnderConstruction", Toast.LENGTH_LONG)
+      		               .show();
+    			}
+            });
+        
         inventory = MockupInventory.getInstance();
         createItemListStringArr();
-       addButton = (Button)findViewById(R.id.inventory_b_additem);
-       addButton.setOnClickListener(new OnClickListener() {
+        addButton = (Button)findViewById(R.id.inventory_b_additem);
+        addButton.setOnClickListener(new OnClickListener() {
 		
     	   
 		@Override

@@ -80,7 +80,7 @@ public class SaleSelectItemActivity extends Activity {
     		             
     		             // Show Alert 
     		             Toast.makeText(getApplicationContext(),
-    		               "Add "+itemValue+" into Cart already", Toast.LENGTH_LONG)
+    		               "+1"+itemValue+" to Cart", Toast.LENGTH_LONG)
     		               .show();
     		            
     					

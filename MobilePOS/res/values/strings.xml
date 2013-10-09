@@ -2,6 +2,8 @@
 <resources>
 
     <string name="app_name">MobilePOS</string>
+   <string name="app_name_sale">Sale</string>
+    <string name="app_name_inventory">Inventory</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
 

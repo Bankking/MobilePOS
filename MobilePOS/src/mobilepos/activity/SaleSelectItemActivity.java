@@ -2,6 +2,7 @@ package mobilepos.activity;
 
 import java.util.List;
 
+import mobilepos.domain.Cart;
 import mobilepos.domain.Item;
 import mobilepos.domain.MockupInventory;
 
@@ -24,13 +25,16 @@ public class SaleSelectItemActivity extends Activity {
 	private ListView itemInInventory;
 	private List<Item> inventory;
 	private String[] inventoryListStringArr;
+	private Cart cart;
+	private List<Item> itemInCart;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.sale_item_in_inventory);
-		
+		cart = Cart.getCartInstance();
+		itemInCart = cart.getItemListInCart();
 		cancelButton = (Button)findViewById(R.id.sale_iii_b_cancel);
 		
 		inventory = MockupInventory.getInstance();
@@ -67,23 +71,16 @@ public class SaleSelectItemActivity extends Activity {
     				public void onItemClick(AdapterView<?> parent, View view,
     		                int position, long id) {
     					// TODO Auto-generated method stub
-    				/*
-    					CurrentItem currentItem = CurrentItem.getInstance();
-    		            currentItem.setCurrentItem(inventory.get(position));
-    		           currentItem.setItemPosition(position);
-    		            
-    		             
-     					Intent goItemInfo = new Intent(getApplicationContext(),InventoryShowItemInfoActivity.class);
-     					
-     					startActivity(goItemInfo);
-    					*/
+    				
+    					cart.addToCart(inventory.get(position));
+    					
     					int itemPosition     = position;
     					 
     					 String  itemValue    = (String)itemInInventory.getItemAtPosition(position);
     		             
     		             // Show Alert 
     		             Toast.makeText(getApplicationContext(),
-    		               "Position :"+itemPosition+"  ListItem : " +itemValue+"\nQuantity : "+inventory.get(position).getItemQnty()+" Brand : "+inventory.get(position).getItemBrand() , Toast.LENGTH_LONG)
+    		               "Add "+itemValue+" into Cart already", Toast.LENGTH_LONG)
     		               .show();
     		            
     					

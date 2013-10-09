@@ -2,6 +2,7 @@ package mobilepos.activity;
 
 import java.util.List;
 
+import mobilepos.domain.Cart;
 import mobilepos.domain.Inventory;
 import mobilepos.domain.Item;
 import mobilepos.domain.MockupInventory;
@@ -11,12 +12,16 @@ import com.example.mobilepos.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class SaleMainActivity extends Activity {
 	private Button addToCartButton;
@@ -26,8 +31,10 @@ public class SaleMainActivity extends Activity {
 	private Button historyButton;
 	private ListView itemInCartList;
 	private TextView totalPrice;
-	private List<Item> inventoryItemList;
+	private List<Item> itemInCart;
+	private Cart cart;
 	private Inventory inventory;
+	private String[] itemInCartListStringArr;
 	
 	
 	@Override
@@ -44,7 +51,8 @@ public class SaleMainActivity extends Activity {
 		historyButton = (Button)findViewById(R.id.history);
 		customerButton = (Button)findViewById(R.id.customer);
 		inventory = new MockupInventory();
-		inventoryItemList = MockupInventory.getInstance();
+		cart = Cart.getCartInstance();
+		createItemListStringArr();
 		
 		saleButton.setOnClickListener(new OnClickListener() {
 
@@ -108,5 +116,42 @@ public class SaleMainActivity extends Activity {
         });
 		
 	}
+	
+	public void createItemListStringArr(){
+		
+		
+		itemInCart = cart.getItemListInCart();
+    	if (itemInCart.size()!=0){
+    		Log.d("create", "aaaaaaaaaaaaaaaaaa");
+        	itemInCartListStringArr = new String[itemInCart.size()];
+        	for (int i = 0; i < itemInCartListStringArr.length; i++) {
+    			itemInCartListStringArr[i] =  itemInCart.get(i).getItemName();
+    		}
+        	
+        	itemInCartList = (ListView)findViewById(R.id.sale_iii_itemlist);
+    		ArrayAdapter<String> itemListAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, itemInCartListStringArr);
+    		  itemInCartList.setAdapter(itemListAdapter); 
+    		    itemInCartList.setOnItemClickListener(new OnItemClickListener() {
+    		    	   
+
+    				@Override
+    				public void onItemClick(AdapterView<?> parent, View view,
+    		                int position, long id) {
+    					// TODO Auto-generated method stub
+    				
+    					int itemPosition     = position;
+    					 
+    					 String  itemValue    = (String)itemInCartList.getItemAtPosition(position);
+    		             
+    		             // Show Alert 
+    		             Toast.makeText(getApplicationContext(),
+    		               "Position :"+itemPosition+"  ListItem : " +itemValue+"\nQuantity : "+itemInCart.get(position).getItemQnty()+" Brand : "+itemInCart.get(position).getItemBrand() , Toast.LENGTH_LONG)
+    		               .show();
+    		            
+    					
+    				}
+    			});
+        	}
+    }
 
 }

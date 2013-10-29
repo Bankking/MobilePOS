@@ -44,35 +44,31 @@ public class InventoryAddMoreItemActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.inventory_additem);
-
 		inventory = MockupInventory.getInstance();
 		newItem = new Item();
 		createAllFindViewByID();
-
 		cancelButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-
 				Intent goInventory = new Intent(getApplicationContext(),
-						MainActivity.class);
+				MainActivity.class);
 
 				startActivity(goInventory);
 			}
 		});
 
 		confirmButton.setOnClickListener(new OnClickListener() {
-
 			@Override
+			
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				newItem.setItemName(itemName.getText().toString());
-
 				newItem.setItemQnty(itemQntyType.getText().toString());
 				newItem.setItemBrand(itemBrand.getText().toString());
 				newItem.setItemPrice(itemPrice.getText().toString());
-
+				
 				inventory.add(newItem);
 
 				Intent goInventory = new Intent(getApplicationContext(),
@@ -82,20 +78,18 @@ public class InventoryAddMoreItemActivity extends Activity {
 			}
 		});
 
-		itemQntyGroup
-				.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+		itemQntyGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
-					@Override
-					public void onCheckedChanged(RadioGroup group, int checkedId) {
-						currentIndexCheckedItemType = checkedId;
-						RadioButton checkedRadioButton = (RadioButton) findViewById(checkedId);
+			@Override
+			public void onCheckedChanged(RadioGroup group, int checkedId) {
+				currentIndexCheckedItemType = checkedId;
+				RadioButton checkedRadioButton = (RadioButton) findViewById(checkedId);
 
-						itemBuyType.setText(checkedRadioButton.getText()
-								.toString());
+				itemBuyType.setText(checkedRadioButton.getText()
+						.toString());
 
-					}
-				});
-
+			}
+		});
 	}
 
 	/**
@@ -116,5 +110,4 @@ public class InventoryAddMoreItemActivity extends Activity {
 		itemBuyPriceType = (TextView) findViewById(R.id.inventory_amp_t_buyprice);
 
 	}
-
 }

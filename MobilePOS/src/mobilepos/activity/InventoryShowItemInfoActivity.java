@@ -24,10 +24,6 @@ public class InventoryShowItemInfoActivity extends Activity {
 	private Item item;
 	private CurrentItem currentItem;
 	private Inventory inventory;
-	
-	
-	
-
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -55,5 +51,4 @@ public class InventoryShowItemInfoActivity extends Activity {
 			}
 		});
 	}
-
 }

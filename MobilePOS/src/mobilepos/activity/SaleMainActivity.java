@@ -53,72 +53,60 @@ public class SaleMainActivity extends Activity {
 		inventory = new MockupInventory();
 		cart = Cart.getCartInstance();
 		createItemListStringArr();
-		
 		saleButton.setOnClickListener(new OnClickListener() {
 
 				@Override
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
-					 Toast.makeText(getApplicationContext(),"Your current page is already Sale", Toast.LENGTH_LONG)
-	  		               .show();
+					Toast.makeText(getApplicationContext(),"Your current page is already Sale", Toast.LENGTH_LONG)
+	  		        .show();
 				}
-	        });
-	
+	    });
+	   
+		inventoryButton.setOnClickListener(new OnClickListener() {
+	    	@Override
+	    	public void onClick(View v) {
+	    		// TODO Auto-generated method stub
+	    		Intent goInventoryPage = new Intent(getApplicationContext(),MainActivity.class);
+	    		startActivity(goInventoryPage);
+	    	}
+	    });
 	        
-	        inventoryButton.setOnClickListener(new OnClickListener() {
-	    		
-	      	   
-	    		@Override
-	    		public void onClick(View v) {
-	    			// TODO Auto-generated method stub
-	    			Intent goInventoryPage = new Intent(getApplicationContext(),MainActivity.class);
-	    			startActivity(goInventoryPage);
-	    		}
-	    	});
-	        
-	       historyButton.setOnClickListener(new OnClickListener() {
-
-				@Override
-				public void onClick(View v) {
-					// TODO Auto-generated method stub
-					 Toast.makeText(getApplicationContext(),"UnderConstruction", Toast.LENGTH_LONG)
-	  		               .show();
-				}
-	        });
-	       customerButton.setOnClickListener(new OnClickListener() {
-
-	    			@Override
-	    			public void onClick(View v) {
-	    				// TODO Auto-generated method stub
-	    			
-	    				 Toast.makeText(getApplicationContext(),"UnderConstruction", Toast.LENGTH_LONG)
-	      		               .show();
-	    			}
-	            });
-	        
-		
-		
-		
-		addToCartButton.setOnClickListener(new OnClickListener() {
+	    historyButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				if (inventory.isEmpty()){
-				Toast.makeText(getApplicationContext(),"Your inventory is empty\nPlease go to inventory to an item first", Toast.LENGTH_SHORT)
-  		               .show();
-				}
-				else {
-					Intent goSaleSelectItem = new Intent(getApplicationContext(),SaleSelectItemActivity.class);
-	    			startActivity(goSaleSelectItem);
-				}
+				Toast.makeText(getApplicationContext(),"UnderConstruction", Toast.LENGTH_LONG)
+	  		    .show();
 			}
-        });
-		
+	    });
+	    customerButton.setOnClickListener(new OnClickListener() {
+	    	@Override
+	    	public void onClick(View v) {
+	    		// TODO Auto-generated method stub
+	    		Toast.makeText(getApplicationContext(),"UnderConstruction", Toast.LENGTH_LONG)
+	      		.show();
+	    	}
+	    });
+
+	    addToCartButton.setOnClickListener(new OnClickListener() {
+	        @Override
+	        public void onClick(View v) {
+	        	// TODO Auto-generated method stub
+	        	if (inventory.isEmpty()){
+	        		Toast.makeText(getApplicationContext(),"Your inventory is empty\nPlease go to inventory to an item first", Toast.LENGTH_SHORT)
+  		            .show();
+	        	}
+	        	else {
+	        		Intent goSaleSelectItem = new Intent(getApplicationContext(),SaleSelectItemActivity.class);
+	        		startActivity(goSaleSelectItem);
+	        	}
+	        }
+	       });	
 	}
 	
-	public void createItemListStringArr(){
-		
+	public void createItemListStringArr(){	
 		
 		itemInCart = cart.getItemListInCart();
     	if (itemInCart.size()!=0){
@@ -130,28 +118,20 @@ public class SaleMainActivity extends Activity {
         	
         	itemInCartList = (ListView)findViewById(R.id.sale_iii_itemlist);
     		ArrayAdapter<String> itemListAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, itemInCartListStringArr);
-    		  itemInCartList.setAdapter(itemListAdapter); 
-    		    itemInCartList.setOnItemClickListener(new OnItemClickListener() {
-    		    	   
+    		itemInCartList.setAdapter(itemListAdapter); 
+    		itemInCartList.setOnItemClickListener(new OnItemClickListener() {
 
-    				@Override
-    				public void onItemClick(AdapterView<?> parent, View view,
-    		                int position, long id) {
-    					// TODO Auto-generated method stub
-    				
-    					int itemPosition     = position;
-    					 
-    					 String  itemValue    = (String)itemInCartList.getItemAtPosition(position);
-    		             
-    		             // Show Alert 
-    		             Toast.makeText(getApplicationContext(),
-    		               "Position :"+itemPosition+"  ListItem : " +itemValue+"\nQuantity : "+itemInCart.get(position).getItemQnty()+" Brand : "+itemInCart.get(position).getItemBrand() , Toast.LENGTH_LONG)
-    		               .show();
-    		            
-    					
-    				}
-    			});
-        	}
+    			@Override
+    			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+    				// TODO Auto-generated method stub
+    				int itemPosition     = position;
+    				String  itemValue    = (String)itemInCartList.getItemAtPosition(position);
+    		        // Show Alert 
+    		        Toast.makeText(getApplicationContext(),
+    		        "Position :"+itemPosition+"  ListItem : " +itemValue+"\nQuantity : "+itemInCart.get(position).getItemQnty()+" Brand : "+itemInCart.get(position).getItemBrand() , Toast.LENGTH_LONG)
+    		        .show();
+    			}
+    		});
+        }
     }
-
 }

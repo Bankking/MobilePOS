@@ -40,6 +40,7 @@ public class InventoryAddMoreItemActivity extends Activity {
 	
 	private Item newItem;
 	private List<Item> inventory;
+	private String pricePerPiece;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -86,8 +87,9 @@ public class InventoryAddMoreItemActivity extends Activity {
 				totalPrice = calculateTotalBuyBaht(itemQntyType.getText().toString(),itemBuyPricePerBox.getText().toString());
 				newItem.setItemPrice(itemPrice.getText().toString());
 				
-				String pricePerPiece;
+				
 				pricePerPiece = calculatePricePerPiece(Integer.parseInt(totalPiece), totalPrice);
+	//			updatePricePerPiece(itemPiecePerBox);
 				itemBuyPriceCal.setText("  "+pricePerPiece+"  ");
 				
 				newItem.setItemBuyBahtPerPiece(pricePerPiece);
@@ -202,8 +204,24 @@ public class InventoryAddMoreItemActivity extends Activity {
 		
 	}
 	
-	public void updatePricePerPiece(EditText mEditText,String pricePerPiece){
+	public void updatePricePerPiece(EditText mEditText){
+		mEditText.setOnKeyListener(new View.OnKeyListener() {
+
+		       
+	        public boolean onKey(View v, int keyCode, KeyEvent event) {
+	            if (keyCode == KeyEvent.KEYCODE_ENTER
+	                    && event.getAction() == KeyEvent.ACTION_UP) {
+	            	
+	            	itemBuyPriceCal.setText("  "+pricePerPiece+"  ");
+	            	
+	            }
+
+	            return false;
+	        }
+
+			
 		
+		});
 	
 	}
 	

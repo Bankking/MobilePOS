@@ -38,9 +38,9 @@ public class InventoryAddMoreItemActivity extends Activity {
 		inventory = MockupInventory.getInstance();
 		newItem = new Item();
 		itemName = (EditText)findViewById(R.id.inventory_amp_f_name);
-		itemQnty = (EditText)findViewById(R.id.inventory_amp_f_qnty);
+		itemQnty = (EditText)findViewById(R.id.inventory_amp_f_buyqntytype);
 		itemBrand = (EditText)findViewById(R.id.inventory_amp_f_brand);
-		itemPrice = (EditText)findViewById(R.id.inventory_amp_f_price);
+		itemPrice = (EditText)findViewById(R.id.inventory_amp_f_sellprice);
 		confirmButton = (Button)findViewById(R.id.inventory_amp_b_confirm);
 		cancelButton = (Button)findViewById(R.id.inventory_amp_b_cancel);
 		

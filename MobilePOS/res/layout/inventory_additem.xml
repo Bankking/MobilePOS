@@ -4,130 +4,241 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="272dp"
-           android:gravity="center_vertical"
-           android:orientation="vertical" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
 
-           <LinearLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:gravity="center"
-               android:orientation="horizontal" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal" >
 
-               <TextView
-                   android:id="@+id/inventory_amp_t_addmoreproduct"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="Add More Product"
-                   android:textAppearance="?android:attr/textAppearanceLarge" />
-           </LinearLayout>
-  <LinearLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:orientation="horizontal" >
+            <TextView
+                android:id="@+id/inventory_amp_t_addmoreproduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add More Product"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </LinearLayout>
 
-               <TextView
-                   android:id="@+id/inventory_amp_t_name"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="Name :"
-                   android:textAppearance="?android:attr/textAppearanceMedium" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
 
-               <EditText
-                   android:id="@+id/inventory_amp_f_name"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_weight="1"
-                   android:ems="10" />
-           </LinearLayout>
+            <TextView
+                android:id="@+id/inventory_amp_t_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Product ID :"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
-           <LinearLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:orientation="horizontal" >
+            <EditText
+                android:id="@+id/inventory_amp_f_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10" />
+        </LinearLayout>
 
-               <TextView
-                   android:id="@+id/inventory_amp_t_brand"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="Brand :"
-                   android:textAppearance="?android:attr/textAppearanceMedium" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
 
-               <EditText
-                   android:id="@+id/inventory_amp_f_brand"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_weight="1"
-                   android:ems="10" />
-           </LinearLayout>
+            <TextView
+                android:id="@+id/inventory_amp_t_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name :"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/inventory_amp_f_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/inventory_amp_t_brand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Brand :"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/inventory_amp_f_brand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/inventory_amp_t_qnty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Buy Quantity :"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <RadioGroup
+                android:id="@+id/inventory_amp_rbg_buyqnty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <RadioButton
+                    android:id="@+id/inventory_amp_rb_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Box(s)" />
+
+                <RadioButton
+                    android:id="@+id/inventory_amp_rb_piece"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Piece(s)" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/inventory_amp_t_buyqnty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Buy :"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/inventory_amp_f_buyqntytype"
+                android:layout_width="176dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number" >
+
+                <requestFocus />
+            </EditText>
+
+            <TextView
+                android:id="@+id/inventory_amp_t_buyqntytype"
+                android:layout_width="89dp"
+                android:layout_height="wrap_content"
+                android:text="Box(s)"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/inventory_amp_f_buyprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number" >
+
+                <requestFocus />
+            </EditText>
+
+            <TextView
+                android:id="@+id/inventory_amp_t_buyprice"
+                android:layout_width="89dp"
+                android:layout_height="wrap_content"
+                android:text="Baht/Box(s)"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/inventory_amp_t_buyprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Buy ฺPrice :"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/inventory_amp_t_buypricecal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  -  "
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+          
+
+            <TextView
+                android:id="@+id/inventory_amp_t_buypriceperpiece"
+                android:layout_width="89dp"
+                android:layout_height="wrap_content"
+                android:text="Baht/Piece"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/inventory_amp_t_sellprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sell Price :"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+              android:id="@+id/inventory_amp_f_sellprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="number" />
+
            
-           <LinearLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:orientation="horizontal" >
+        </LinearLayout>
 
-               <TextView
-                   android:id="@+id/inventory_amp_t_qnty"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="Quantity :"
-                   android:textAppearance="?android:attr/textAppearanceMedium" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="horizontal" >
 
-               <EditText
-                   android:id="@+id/inventory_amp_f_qnty"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_weight="1"
-                   android:ems="10" />
-           </LinearLayout>
+            <Button
+                android:id="@+id/inventory_amp_b_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Confirm" />
 
-           <LinearLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:orientation="horizontal" >
+            <Button
+                android:id="@+id/inventory_amp_b_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancel" />
+        </LinearLayout>
+    </LinearLayout>
 
-               <TextView
-                   android:id="@+id/inventory_amp_t_price"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="Price :"
-                   android:textAppearance="?android:attr/textAppearanceMedium" />
-
-               <EditText
-                   android:id="@+id/inventory_amp_f_price"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_weight="1"
-                   android:ems="10" />
-           </LinearLayout>
-
-         
-           
-             <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:gravity="right"
-           android:orientation="horizontal" >
-
-           <Button
-               android:id="@+id/inventory_amp_b_confirm"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="Confirm" />
-           
-           <Button
-               android:id="@+id/inventory_amp_b_cancel"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="Cancel" />
-       </LinearLayout>
-           
-           
-       </LinearLayout>
-
-     
-       
-      </LinearLayout>
-    
+</LinearLayout>

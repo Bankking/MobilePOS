@@ -96,7 +96,7 @@ public class MainActivity extends Activity {
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-			Intent goAddMoreProduct = new Intent(getApplicationContext(),InventoryAddMoreItemActivity.class);
+			Intent goAddMoreProduct = new Intent(getApplicationContext(), InventoryAddMoreItemActivity.class);
 			startActivity(goAddMoreProduct);
 		}
 	});
@@ -114,37 +114,29 @@ public class MainActivity extends Activity {
         	
         	allItemList = (ListView)findViewById(R.id.inventory_itemlist);
     		ArrayAdapter<String> itemListAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, inventoryListStringArr);
-    		  allItemList.setAdapter(itemListAdapter); 
-    		    allItemList.setOnItemClickListener(new OnItemClickListener() {
+    		allItemList.setAdapter(itemListAdapter); 
+    		allItemList.setOnItemClickListener(new OnItemClickListener() {
     		    	   
 
-    				@Override
-    				public void onItemClick(AdapterView<?> parent, View view,
-    		                int position, long id) {
-    					// TODO Auto-generated method stub
+    		@Override
+    		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+    				// TODO Auto-generated method stub
     				/*
-    					CurrentItem currentItem = CurrentItem.getInstance();
-    		            currentItem.setCurrentItem(inventory.get(position));
-    		           currentItem.setItemPosition(position);
-    		            
-    		             
-     					Intent goItemInfo = new Intent(getApplicationContext(),InventoryShowItemInfoActivity.class);
-     					
-     					startActivity(goItemInfo);
-    					*/
-    					int itemPosition     = position;
-    					 
-    					 String  itemValue    = (String)allItemList.getItemAtPosition(position);
-    		             
-    		             // Show Alert 
-    		             Toast.makeText(getApplicationContext(),
-    		               "Position :"+itemPosition+"  ListItem : " +itemValue+"\nQuantity : "+inventory.get(position).getItemQnty()+" Brand : "+inventory.get(position).getItemBrand() , Toast.LENGTH_LONG)
-    		               .show();
-    		            
-    					
-    				}
-    			});
-        	}
+    				CurrentItem currentItem = CurrentItem.getInstance();
+    		        currentItem.setCurrentItem(inventory.get(position));
+    		        currentItem.setItemPosition(position);            
+     				Intent goItemInfo = new Intent(getApplicationContext(),InventoryShowItemInfoActivity.class);
+     				startActivity(goItemInfo);
+    				*/
+    				int itemPosition = position;
+    				String  itemValue = (String)allItemList.getItemAtPosition(position);            
+    		        // Show Alert 
+    		        Toast.makeText(getApplicationContext(),
+    		        "Position :"+itemPosition+"  ListItem : " +itemValue+"\nQuantity : "+inventory.get(position).getItemQnty()+" Brand : "+inventory.get(position).getItemBrand() , Toast.LENGTH_LONG)
+    		        .show();
+    			}
+    		});
+        }
     }
 
     @Override

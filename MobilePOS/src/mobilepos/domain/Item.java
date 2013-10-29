@@ -5,7 +5,12 @@ public class Item {
 	private String itemName;
 	private String itemBrand;
 	private int itemQnty;
-	private int itemPrice;
+	private double itemPrice;
+	private double itemBuyBahtPerPiece;
+	
+	
+	
+	
 	
 	/*
 	 * set ItemId
@@ -75,17 +80,34 @@ public class Item {
 	 * @param recieve item price
 	 */
 	public void setItemPrice(String itemPrice){
-		this.itemPrice = Integer.parseInt(itemPrice);
+		this.itemPrice = Double.parseDouble(itemPrice);
 	}
 	
 	/*
 	 * get item price
 	 * @return item price
 	 */
-	public int getItemPrice(){
+	public double getItemPrice(){
 		return itemPrice;
 	}
 
+	/*
+	 * set ItemBuyBahtPerPiece
+	 * @param recieve buy baht/piece
+	 */
+	public void setItemBuyBahtPerPiece(String itemBuyBahtPerPiece){
+		this.itemBuyBahtPerPiece = Double.parseDouble(itemBuyBahtPerPiece);
+	}
 	
+	/*
+	 * get  ItemBuyBahtPerPiece
+	 * @return item buyprice
+	 */
+	public double getItemBuyBahtPerPiece(){
+		return itemBuyBahtPerPiece;
+	}
+
+	
+
 
 }

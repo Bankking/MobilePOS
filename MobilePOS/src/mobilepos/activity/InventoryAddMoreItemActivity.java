@@ -26,6 +26,7 @@ public class InventoryAddMoreItemActivity extends Activity {
 	private EditText itemPrice;
 	private EditText itemPiecePerBox;
 	private EditText itemProductId;
+	private EditText itemBuyPricePerBox;
 	
 	private RadioGroup itemQntyGroup;
 
@@ -48,6 +49,10 @@ public class InventoryAddMoreItemActivity extends Activity {
 		newItem = new Item();
 		createAllFindViewById();
 		setAllEditTextToOneLine();
+		
+		/**
+		 * when select cancel button it will go back to inventory page
+		 */
 		cancelButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -59,16 +64,33 @@ public class InventoryAddMoreItemActivity extends Activity {
 				startActivity(goInventory);
 			}
 		});
+		
+		/**
+		 * when select confirm button it will add new item to inventory and go back to inventory page
+		 */
 
 		confirmButton.setOnClickListener(new OnClickListener() {
 			@Override
 			
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
+				newItem.setItemId(itemProductId.getText().toString());
 				newItem.setItemName(itemName.getText().toString());
-				newItem.setItemQnty(itemQntyType.getText().toString());
 				newItem.setItemBrand(itemBrand.getText().toString());
+				
+				String totalPiece;
+				totalPiece = calculateTotalPiece(itemQntyType.getText().toString(), itemPiecePerBox.getText().toString());
+				newItem.setItemQnty(totalPiece);
+				
+				String totalPrice;
+				totalPrice = calculateTotalBuyBaht(itemQntyType.getText().toString(),itemBuyPricePerBox.getText().toString());
 				newItem.setItemPrice(itemPrice.getText().toString());
+				
+				String pricePerPiece;
+				pricePerPiece = calculatePricePerPiece(Integer.parseInt(totalPiece), totalPrice);
+				itemBuyPriceCal.setText("  "+pricePerPiece+"  ");
+				
+				newItem.setItemBuyBahtPerPiece(pricePerPiece);
 				
 				inventory.add(newItem);
 
@@ -108,6 +130,28 @@ public class InventoryAddMoreItemActivity extends Activity {
 			}
 		});
 	}
+	
+	public String calculateTotalPiece(String box, String piecePerBox){
+		int a = Integer.parseInt(box), b = Integer.parseInt(piecePerBox);
+		return a*b+"";
+	}
+	
+	public String calculateTotalBuyBaht(String box,String totalBaht){
+		int   a = Integer.parseInt(box),b = Integer.parseInt(totalBaht);
+		return a*b+"";
+	}
+	
+	public String calculatePricePerPiece(int piece, String price){
+		double b = Double.parseDouble(price);
+		
+		return b/piece+"";
+	}
+	
+	
+	
+
+	
+	
 
 	/**
 	 * create all xx = findViewById(xxx);
@@ -120,6 +164,7 @@ public class InventoryAddMoreItemActivity extends Activity {
 		itemPrice = (EditText) findViewById(R.id.inventory_amp_f_sellprice);
 		itemPiecePerBox = (EditText) findViewById(R.id.inventory_amp_f_pieceperbox);
 		itemProductId = (EditText) findViewById(R.id.inventory_amp_f_productid);
+		itemBuyPricePerBox = (EditText) findViewById(R.id.inventory_amp_f_buypricebathperbox);
 		
 		//Button
 		confirmButton = (Button) findViewById(R.id.inventory_amp_b_confirm);
@@ -133,7 +178,7 @@ public class InventoryAddMoreItemActivity extends Activity {
 		itemBuyType = (TextView) findViewById(R.id.inventory_amp_t_buyqntytype);
 		itemBuyPriceText = (TextView) findViewById(R.id.inventory_amp_t_pieceperbox);
 		itemBuyBahtPerType = (TextView) findViewById(R.id.inventory_amp_t_buypricebathpertype);
-	
+		
 		
 		
 		
@@ -156,7 +201,11 @@ public class InventoryAddMoreItemActivity extends Activity {
 		setMaxLineText(itemProductId);
 		
 	}
-
+	
+	public void updatePricePerPiece(EditText mEditText,String pricePerPiece){
+		
+	
+	}
 	
 	/**
 	 * Set EditText to be one single line (cannot press enter to enter the new line) 

@@ -38,7 +38,6 @@ public class InventoryShowItemInfoActivity extends Activity {
 		itemBrand.setText(item.getItemBrand());
 		itemPrice.setText("Price: "+item.getItemPrice());
 		itemQnty.setText("Quantity: "+item.getItemQnty());
-		//}
 		
 		backButton = (Button)findViewById(R.id.inventory_ii_b_back);
 		backButton.setOnClickListener(new OnClickListener() {

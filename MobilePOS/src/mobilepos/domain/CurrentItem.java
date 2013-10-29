@@ -14,15 +14,19 @@ public class CurrentItem {
 		if (currentItem == null) currentItem = new CurrentItem();
 		return currentItem;
 	}
+	
 	public void setCurrentItem(Item item){
 		this.item = item;
 	}
+	
 	public void setItemPosition(int i){
 		this.itemPosition = i;
 	}
+	
 	public int getItemPosition(){
 		return itemPosition;
 	}
+	
 	public Item getCurrentItem(){
 		return item;
 	}

@@ -40,7 +40,6 @@ public class MainActivity extends Activity {
         saleButton = (Button) findViewById(R.id.sale);
         customerButton = (Button) findViewById(R.id.customer);
         historyButton = (Button) findViewById(R.id.history);
-        
         inventoryButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -61,7 +60,6 @@ public class MainActivity extends Activity {
     	});
         
         historyButton.setOnClickListener(new OnClickListener() {
-
 			@Override
 			public void onClick(View v) {
 				 // TODO Auto-generated method stub

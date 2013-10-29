@@ -2,13 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="right"
     android:orientation="vertical" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="bottom|center_vertical|right"
+        android:gravity="center_vertical"
         android:orientation="vertical" >
 
         <LinearLayout
@@ -59,11 +58,10 @@
 
             <EditText
                 android:id="@+id/inventory_amp_f_name"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:gravity="center_vertical" />
-
+                android:layout_weight="1"
+                android:ems="10" />
         </LinearLayout>
 
         <LinearLayout
@@ -136,8 +134,6 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="number" >
-
-                <requestFocus />
             </EditText>
 
             <TextView
@@ -146,30 +142,30 @@
                 android:layout_height="wrap_content"
                 android:text="Box(es)"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
-
         </LinearLayout>
-
           <LinearLayout
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:orientation="horizontal" >
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal" >
 
-              <TextView
-                  android:id="@+id/inventory_amp_t_buypricebathpertype"
-                  android:layout_width="89dp"
-                  android:layout_height="wrap_content"
-                  android:text="Baht/Box :"
-                  android:textAppearance="?android:attr/textAppearanceMedium" />
+           <TextView
+               android:id="@+id/inventory_amp_t_buypricebathpertype"
+               android:layout_width="89dp"
+               android:layout_height="wrap_content"
+               android:layout_weight="0.52"
+               android:text="Baht/Box  :"
+               android:textAppearance="?android:attr/textAppearanceMedium" />
 
-              <EditText
-                  android:id="@+id/inventory_amp_f_buypricebathperbox"
-                  android:layout_width="0dp"
-                  android:layout_height="wrap_content"
-                  android:layout_weight="1.04"
-                  android:ems="10"
-                  android:inputType="number" />
-          </LinearLayout>
+           <EditText
+               android:id="@+id/inventory_amp_f_buypricebathperbox"
+               android:layout_width="227dp"
+               android:layout_height="wrap_content"
+               android:ems="10"
+               android:inputType="number" >
 
+               <requestFocus />
+           </EditText>
+       </LinearLayout>
          <LinearLayout
           
              android:layout_width="match_parent"
@@ -185,7 +181,7 @@
 
             <EditText
                 android:id="@+id/inventory_amp_f_pieceperbox"
-                android:layout_width="wrap_content"
+                android:layout_width="134dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="number" >
@@ -193,6 +189,37 @@
                 <requestFocus />
             </EditText>
 
+        </LinearLayout>
+
+      
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/inventory_amp_t_buyprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Buy ฺPrice :"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/inventory_amp_t_calbuyprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  -  "
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+          
+
+            <TextView
+                android:id="@+id/inventory_amp_t_buypriceperpiece"
+                android:layout_width="89dp"
+                android:layout_height="wrap_content"
+                android:text="Baht/Piece"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
         </LinearLayout>
 
         <LinearLayout
@@ -220,8 +247,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="69dp"
-            android:gravity="bottom|right"
+            android:layout_height="wrap_content"
+            android:gravity="right"
             android:orientation="horizontal" >
 
             <Button
@@ -236,35 +263,6 @@
                 android:layout_height="wrap_content"
                 android:text="Cancel" />
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="bottom|end|right"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:id="@+id/inventory_amp_t_buyprice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Buy ฺPrice :"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            <TextView
-                android:id="@+id/inventory_amp_t_calbuyprice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="  -  "
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <TextView
-                android:id="@+id/inventory_amp_t_buypriceperpiece"
-                android:layout_width="89dp"
-                android:layout_height="wrap_content"
-                android:text="Baht/Piece"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-        </LinearLayout>
-
     </LinearLayout>
 
 </LinearLayout>

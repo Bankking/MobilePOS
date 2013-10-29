@@ -9,20 +9,22 @@ public class Cart {
 	private Cart(){
 		
 	}
-	public static Cart getCartInstance(){
+	
+	public static Cart getCartInstance() {
 		if (cart == null) cart = new Cart();
 		return cart;
 	}
 	
-	public List<Item> getItemListInCart(){
+	public List<Item> getItemListInCart() {
 		if (itemInCart == null) itemInCart = new ArrayList<Item>();
 		return itemInCart;
 	}
 	
-	public void addToCart(Item item){
+	public void addToCart(Item item) {
 		itemInCart.add(item);
 	}
-	public void removeItem(int position){
+	
+	public void removeItem(int position) {
 		itemInCart.remove(position);
 	}
 	

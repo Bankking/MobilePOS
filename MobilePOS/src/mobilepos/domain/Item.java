@@ -8,10 +8,6 @@ public class Item {
 	private double itemPrice;
 	private double itemBuyBahtPerPiece;
 	
-	
-	
-	
-	
 	/*
 	 * set ItemId
 	 * @param recieve itemId

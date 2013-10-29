@@ -69,16 +69,15 @@ public class InventoryAddMoreItemActivity extends Activity {
 		/**
 		 * when select confirm button it will add new item to inventory and go back to inventory page
 		 */
-
 		confirmButton.setOnClickListener(new OnClickListener() {
-			@Override
 			
+			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				newItem.setItemId(itemProductId.getText().toString());
 				newItem.setItemName(itemName.getText().toString());
 				newItem.setItemBrand(itemBrand.getText().toString());
-				
+			
 				String totalPiece;
 				totalPiece = calculateTotalPiece(itemQntyType.getText().toString(), itemPiecePerBox.getText().toString());
 				newItem.setItemQnty(totalPiece);
@@ -87,48 +86,34 @@ public class InventoryAddMoreItemActivity extends Activity {
 				totalPrice = calculateTotalBuyBaht(itemQntyType.getText().toString(),itemBuyPricePerBox.getText().toString());
 				newItem.setItemPrice(itemPrice.getText().toString());
 				
-				
 				pricePerPiece = calculatePricePerPiece(Integer.parseInt(totalPiece), totalPrice);
 	//			updatePricePerPiece(itemPiecePerBox);
 				itemBuyPriceCal.setText("  "+pricePerPiece+"  ");
-				
 				newItem.setItemBuyBahtPerPiece(pricePerPiece);
-				
 				inventory.add(newItem);
-
 				Intent goInventory = new Intent(getApplicationContext(),
 						MainActivity.class);
-
 				startActivity(goInventory);
 			}
 		});
 
 		itemQntyGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
-					@Override
-					public void onCheckedChanged(RadioGroup group, int checkedId) {
-
-						RadioButton checkedRadioButton = (RadioButton) findViewById(checkedId);
-
-						itemBuyType.setText(checkedRadioButton.getText()
-								.toString());
+			@Override
+			public void onCheckedChanged(RadioGroup group, int checkedId) {
+				RadioButton checkedRadioButton = (RadioButton) findViewById(checkedId);
+				itemBuyType.setText(checkedRadioButton.getText().toString());
 						
-						if (checkedRadioButton.getText().toString()
-								.equals("Piece(s)")) {
-							itemPiecePerBox.setText("non");
-							itemPiecePerBox.setEnabled(false);
-							itemBuyBahtPerType.setText("Baht/Piece :");
-
-						}
-						else if (checkedRadioButton.getText().toString()
-								.equals("Box(es)")) {
-							itemPiecePerBox.setText("");
-							itemPiecePerBox.setEnabled(true);
-							itemBuyBahtPerType.setText("Baht/Box :");
-
-						}
-
-
+				if (checkedRadioButton.getText().toString().equals("Piece(s)")) {
+					itemPiecePerBox.setText("non");
+					itemPiecePerBox.setEnabled(false);
+					itemBuyBahtPerType.setText("Baht/Piece :");
+				}
+				else if (checkedRadioButton.getText().toString().equals("Box(es)")) {
+					itemPiecePerBox.setText("");
+					itemPiecePerBox.setEnabled(true);
+					itemBuyBahtPerType.setText("Baht/Box :");
+				}
 			}
 		});
 	}
@@ -139,21 +124,14 @@ public class InventoryAddMoreItemActivity extends Activity {
 	}
 	
 	public String calculateTotalBuyBaht(String box,String totalBaht){
-		int   a = Integer.parseInt(box),b = Integer.parseInt(totalBaht);
+		int a = Integer.parseInt(box),b = Integer.parseInt(totalBaht);
 		return a*b+"";
 	}
 	
 	public String calculatePricePerPiece(int piece, String price){
 		double b = Double.parseDouble(price);
-		
 		return b/piece+"";
 	}
-	
-	
-	
-
-	
-	
 
 	/**
 	 * create all xx = findViewById(xxx);
@@ -180,21 +158,14 @@ public class InventoryAddMoreItemActivity extends Activity {
 		itemBuyType = (TextView) findViewById(R.id.inventory_amp_t_buyqntytype);
 		itemBuyPriceText = (TextView) findViewById(R.id.inventory_amp_t_pieceperbox);
 		itemBuyBahtPerType = (TextView) findViewById(R.id.inventory_amp_t_buypricebathpertype);
-		
-		
-		
-		
-		
-
 	}
 
 	
 	/**
 	 * Set all EditText to be one single line
-	 * */
-	
+	 * 
+	 */
 	public void setAllEditTextToOneLine(){
-		
 		setMaxLineText(itemName);
 		setMaxLineText(itemBrand);
 		setMaxLineText(itemPiecePerBox);
@@ -205,54 +176,36 @@ public class InventoryAddMoreItemActivity extends Activity {
 	}
 	
 	public void updatePricePerPiece(EditText mEditText){
-		mEditText.setOnKeyListener(new View.OnKeyListener() {
-
-		       
+		mEditText.setOnKeyListener(new View.OnKeyListener() {       
 	        public boolean onKey(View v, int keyCode, KeyEvent event) {
-	            if (keyCode == KeyEvent.KEYCODE_ENTER
-	                    && event.getAction() == KeyEvent.ACTION_UP) {
-	            	
-	            	itemBuyPriceCal.setText("  "+pricePerPiece+"  ");
-	            	
+	            if (keyCode == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_UP) {
+	            	itemBuyPriceCal.setText("  "+pricePerPiece+"  ");	
 	            }
-
 	            return false;
 	        }
-
-			
-		
 		});
-	
 	}
 	
 	/**
 	 * Set EditText to be one single line (cannot press enter to enter the new line) 
-	 **/
+	 */
 	public void setMaxLineText(EditText mEditText){
 		mEditText.setOnKeyListener(new View.OnKeyListener() {
-
-	       
 	        public boolean onKey(View v, int keyCode, KeyEvent event) {
-	            if (keyCode == KeyEvent.KEYCODE_ENTER
-	                    && event.getAction() == KeyEvent.ACTION_UP) {
-	                String text = ((EditText) v).getText().toString();
-	               int editTextRowCount = text.split("\\n").length;
-	                if (editTextRowCount >= 1) {
+	        	if (keyCode == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_UP) {
+	        		String text = ((EditText) v).getText().toString();
+	        		int editTextRowCount = text.split("\\n").length;
+	                if (editTextRowCount >= 1) 
+	                {
 	                    int lastBreakIndex = text.lastIndexOf("\n");
 	                    String newText = text.substring(0, lastBreakIndex);
 	                    ((EditText) v).setText("");
 	                    ((EditText) v).append(newText);
-
 	                }
 	            }
-
 	            return false;
 	        }
-
-			
-		
 		});
 	}
-
 }
 	

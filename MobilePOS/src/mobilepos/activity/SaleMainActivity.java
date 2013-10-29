@@ -54,13 +54,12 @@ public class SaleMainActivity extends Activity {
 		cart = Cart.getCartInstance();
 		createItemListStringArr();
 		saleButton.setOnClickListener(new OnClickListener() {
-
-				@Override
-				public void onClick(View v) {
-					// TODO Auto-generated method stub
-					Toast.makeText(getApplicationContext(),"Your current page is already Sale", Toast.LENGTH_LONG)
-	  		        .show();
-				}
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Toast.makeText(getApplicationContext(),"Your current page is already Sale", Toast.LENGTH_LONG)
+	  		    .show();
+			}
 	    });
 	   
 		inventoryButton.setOnClickListener(new OnClickListener() {
@@ -73,7 +72,6 @@ public class SaleMainActivity extends Activity {
 	    });
 	        
 	    historyButton.setOnClickListener(new OnClickListener() {
-
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
@@ -81,6 +79,7 @@ public class SaleMainActivity extends Activity {
 	  		    .show();
 			}
 	    });
+	    
 	    customerButton.setOnClickListener(new OnClickListener() {
 	    	@Override
 	    	public void onClick(View v) {
@@ -103,7 +102,7 @@ public class SaleMainActivity extends Activity {
 	        		startActivity(goSaleSelectItem);
 	        	}
 	        }
-	       });	
+	    });	
 	}
 	
 	public void createItemListStringArr(){	

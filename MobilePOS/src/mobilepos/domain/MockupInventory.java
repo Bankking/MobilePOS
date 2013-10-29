@@ -14,8 +14,6 @@ public class MockupInventory implements Inventory {
 		
 	}
 	
-	
-	
 	@Override
 	public void addItem(Item i) {
 		// TODO Auto-generated method stub
@@ -46,26 +44,18 @@ public class MockupInventory implements Inventory {
 			
 	}
 
-
-
 	@Override
 	public List<Item> getItemList() {
 		// TODO Auto-generated method stub
 		return itemList;
 	}
 
-
-
 	@Override
 	public boolean isEmpty() {
 		// TODO Auto-generated method stub
 		if (itemList.size()!=0){
 			return false;
-		}
-		
+		}		
 		return  true;
 	}
-	
-	
-
 }

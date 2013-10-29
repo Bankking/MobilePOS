@@ -46,7 +46,6 @@ public class SaleSelectItemActivity extends Activity {
 				// TODO Auto-generated method stub
 				Intent goSaleMain = new Intent(getApplicationContext(),SaleMainActivity.class);
     			startActivity(goSaleMain);
-				
 			}
 		});
 	}

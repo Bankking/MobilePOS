@@ -20,26 +20,42 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 public class InventoryAddMoreItemActivity extends Activity {
+	/** name of product */
 	private EditText itemName;
+	/** type of product quantity */ 
 	private EditText itemQntyType;
+	/** brand of product */
 	private EditText itemBrand;
+	/** cost of product */
 	private EditText itemPrice;
+	/** cost of one product per box */
 	private EditText itemPiecePerBox;
+	/** id of product */
 	private EditText itemProductId;
+	/** cost of product per box */
 	private EditText itemBuyPricePerBox;
 	
+	/** product quantity group */
 	private RadioGroup itemQntyGroup;
-
+	
+	/** text view of product */
 	private TextView itemBuyPriceCal;
+	/** text view to enter cost of product */
 	private TextView itemBuyPriceText;
+	/** text view of type of product */
 	private TextView itemBuyType;
+	/** text view of cost of product by bath */
 	private TextView itemBuyBahtPerType;
 	
+	/** button to confirm for add product */
 	private Button confirmButton;
+	/** button to cancel product */
 	private Button cancelButton;
-	
+
 	private Item newItem;
+	/** create list of inventory */
 	private List<Item> inventory;
+	/** cost per piece */
 	private String pricePerPiece;
 
 	@Override
@@ -97,6 +113,9 @@ public class InventoryAddMoreItemActivity extends Activity {
 			}
 		});
 
+		/**
+		 * 
+		 */
 		itemQntyGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
 			@Override
@@ -118,16 +137,34 @@ public class InventoryAddMoreItemActivity extends Activity {
 		});
 	}
 	
+	/**
+	 * a = number of box, b = p = cost per box
+	 * @param box is number of total box
+	 * @param piecePerBox is cost per box
+	 * @return a * b or total cost of all box
+	 */
 	public String calculateTotalPiece(String box, String piecePerBox){
 		int a = Integer.parseInt(box), b = Integer.parseInt(piecePerBox);
 		return a*b+"";
 	}
 	
+	/**
+	 * a is box, b is total bath
+	 * @param box is number of total box
+	 * @param totalBaht is total cost in unit baht
+	 * @return a * b or total cost of box in unit baht
+	 */
 	public String calculateTotalBuyBaht(String box,String totalBaht){
 		int a = Integer.parseInt(box),b = Integer.parseInt(totalBaht);
 		return a*b+"";
 	}
 	
+	/**
+	 * create attribute b for convert string of price to integer
+	 * @param piece total quantity of product
+	 * @param price is cost of product
+	 * @return price / piece
+	 */
 	public String calculatePricePerPiece(int piece, String price){
 		double b = Double.parseDouble(price);
 		return b/piece+"";
@@ -163,7 +200,6 @@ public class InventoryAddMoreItemActivity extends Activity {
 	
 	/**
 	 * Set all EditText to be one single line
-	 * 
 	 */
 	public void setAllEditTextToOneLine(){
 		setMaxLineText(itemName);
@@ -175,6 +211,10 @@ public class InventoryAddMoreItemActivity extends Activity {
 		
 	}
 	
+	/**
+	 * update text price per piece
+	 * @param mEditText receive mEditText
+	 */
 	public void updatePricePerPiece(EditText mEditText){
 		mEditText.setOnKeyListener(new View.OnKeyListener() {       
 	        public boolean onKey(View v, int keyCode, KeyEvent event) {

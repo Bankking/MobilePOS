@@ -32,6 +32,7 @@ public class InventoryAddMoreItemActivity extends Activity {
 	private TextView itemBuyPriceCal;
 	private TextView itemBuyPriceText;
 	private TextView itemBuyType;
+	private TextView itemBuyBahtPerType;
 	
 	private Button confirmButton;
 	private Button cancelButton;
@@ -96,14 +97,14 @@ public class InventoryAddMoreItemActivity extends Activity {
 								.equals("Piece(s)")) {
 							itemPiecePerBox.setText("non");
 							itemPiecePerBox.setEnabled(false);
-							itemBuyPriceText.setText("Baht/Piece :");
+							itemBuyBahtPerType.setText("Baht/Piece :");
 
 						}
 						else if (checkedRadioButton.getText().toString()
 								.equals("Box(es)")) {
 							itemPiecePerBox.setText("");
 							itemPiecePerBox.setEnabled(true);
-							itemBuyPriceText.setText("Baht/Box :");
+							itemBuyBahtPerType.setText("Baht/Box :");
 
 						}
 
@@ -135,6 +136,7 @@ public class InventoryAddMoreItemActivity extends Activity {
 		itemBuyPriceCal = (TextView) findViewById(R.id.inventory_amp_t_calbuyprice);
 		itemBuyType = (TextView) findViewById(R.id.inventory_amp_t_buyqntytype);
 		itemBuyPriceText = (TextView) findViewById(R.id.inventory_amp_t_pieceperbox);
+		itemBuyBahtPerType = (TextView) findViewById(R.id.inventory_amp_t_buypricebathpertype);
 	
 		
 		

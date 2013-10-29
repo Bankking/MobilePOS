@@ -63,6 +63,7 @@ public class InventoryAddMoreItemActivity extends Activity {
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				newItem.setItemName(itemName.getText().toString());
+				//newItem.setItemType(itemQntyTypeBox.)
 				newItem.setItemQnty(itemQntyType.getText().toString());
 				newItem.setItemBrand(itemBrand.getText().toString());
 				newItem.setItemPrice(itemPrice.getText().toString());
@@ -92,6 +93,7 @@ public class InventoryAddMoreItemActivity extends Activity {
 		itemQntyGroup = (RadioGroup) findViewById(R.id.inventory_amp_rbg_buyqnty);
 		itemQntyTypeBox = (RadioButton) findViewById(R.id.inventory_amp_rb_box);
 		itemQntyTypePiece = (RadioButton) findViewById(R.id.inventory_amp_rb_piece);
+		
 	}
 
 

@@ -35,12 +35,9 @@ public class SaleSelectItemActivity extends Activity {
 		setContentView(R.layout.sale_item_in_inventory);
 		cart = Cart.getCartInstance();
 		itemInCart = cart.getItemListInCart();
-		cancelButton = (Button)findViewById(R.id.sale_iii_b_cancel);
-		
-		inventory = MockupInventory.getInstance();
-	    
+		cancelButton = (Button)findViewById(R.id.sale_iii_b_cancel);	
+		inventory = MockupInventory.getInstance();  
 		createItemListStringArr();
-		
 		
 		cancelButton.setOnClickListener(new OnClickListener() {
 			
@@ -56,37 +53,27 @@ public class SaleSelectItemActivity extends Activity {
 	
 	public void createItemListStringArr(){
     	if (inventory.size()!=0){
-        	inventoryListStringArr = new String[inventory.size()];
-        	for (int i = 0; i < inventoryListStringArr.length; i++) {
+    		inventoryListStringArr = new String[inventory.size()];
+    		for (int i = 0; i < inventoryListStringArr.length; i++) {
     			inventoryListStringArr[i] =  inventory.get(i).getItemName();
     		}
         	
-        	itemInInventory = (ListView)findViewById(R.id.sale_iii_itemlist);
+    		itemInInventory = (ListView)findViewById(R.id.sale_iii_itemlist);
     		ArrayAdapter<String> itemListAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, inventoryListStringArr);
-    		  itemInInventory.setAdapter(itemListAdapter); 
-    		    itemInInventory.setOnItemClickListener(new OnItemClickListener() {
-    		    	   
+    		itemInInventory.setAdapter(itemListAdapter); 
+    		itemInInventory.setOnItemClickListener(new OnItemClickListener() {
 
-    				@Override
-    				public void onItemClick(AdapterView<?> parent, View view,
-    		                int position, long id) {
-    					// TODO Auto-generated method stub
-    				
-    					cart.addToCart(inventory.get(position));
-    					
-    					int itemPosition     = position;
-    					 
-    					 String  itemValue    = (String)itemInInventory.getItemAtPosition(position);
-    		             
-    		             // Show Alert 
-    		             Toast.makeText(getApplicationContext(),
-    		               "+1"+itemValue+" to Cart", Toast.LENGTH_LONG)
-    		               .show();
-    		            
-    					
-    				}
-    			});
-        	}
+    			@Override
+    			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+    				// TODO Auto-generated method stub
+    				cart.addToCart(inventory.get(position));
+    				int itemPosition  = position;
+    				String  itemValue = (String)itemInInventory.getItemAtPosition(position);
+    				// Show Alert 
+    				Toast.makeText(getApplicationContext(), "+1"+itemValue+" to Cart", Toast.LENGTH_LONG)
+    				.show();			
+    			}
+    		});
+    	}
     }
-
 }

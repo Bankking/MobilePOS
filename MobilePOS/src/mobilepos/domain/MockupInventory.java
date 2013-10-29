@@ -42,7 +42,7 @@ public class MockupInventory implements Inventory {
 	public Item getItemByPostion(int i) {
 		// TODO Auto-generated method stub
 		
-				return itemList.get(i);
+		return itemList.get(i);
 			
 	}
 

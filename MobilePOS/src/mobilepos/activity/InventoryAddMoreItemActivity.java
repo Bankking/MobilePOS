@@ -44,7 +44,6 @@ public class InventoryAddMoreItemActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.inventory_additem);
-
 		inventory = MockupInventory.getInstance();
 		newItem = new Item();
 		createAllFindViewById();
@@ -54,25 +53,23 @@ public class InventoryAddMoreItemActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-
 				Intent goInventory = new Intent(getApplicationContext(),
-						MainActivity.class);
+				MainActivity.class);
 
 				startActivity(goInventory);
 			}
 		});
 
 		confirmButton.setOnClickListener(new OnClickListener() {
-
 			@Override
+			
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				newItem.setItemName(itemName.getText().toString());
-
 				newItem.setItemQnty(itemQntyType.getText().toString());
 				newItem.setItemBrand(itemBrand.getText().toString());
 				newItem.setItemPrice(itemPrice.getText().toString());
-
+				
 				inventory.add(newItem);
 
 				Intent goInventory = new Intent(getApplicationContext(),
@@ -82,8 +79,7 @@ public class InventoryAddMoreItemActivity extends Activity {
 			}
 		});
 
-		itemQntyGroup
-				.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+		itemQntyGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
 					@Override
 					public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -108,9 +104,9 @@ public class InventoryAddMoreItemActivity extends Activity {
 
 						}
 
-					}
-				});
 
+			}
+		});
 	}
 
 	/**
@@ -144,6 +140,7 @@ public class InventoryAddMoreItemActivity extends Activity {
 		
 
 	}
+
 	
 	/**
 	 * Set all EditText to be one single line
@@ -189,5 +186,6 @@ public class InventoryAddMoreItemActivity extends Activity {
 		
 		});
 	}
+
 }
 	

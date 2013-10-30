@@ -22,11 +22,18 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
+	/** add button for add product to cart */
 	private Button addButton;
+	/** inventory button for go to inventory */
 	private Button inventoryButton;
+	/** sale button */
 	private Button saleButton;
+	/** customer button */
 	private Button customerButton;
+	/** history button */
 	private Button historyButton;
+	
+	/** list of product */
 	private ListView allItemList;
 	private List<Item> inventory;
 	private String[] inventoryListStringArr;
@@ -50,6 +57,9 @@ public class MainActivity extends Activity {
 			}
         });
         
+        /**
+         * when select Sale button it will go to Sale page
+         */
         saleButton.setOnClickListener(new OnClickListener() {  	   
     		@Override
     		public void onClick(View v) {

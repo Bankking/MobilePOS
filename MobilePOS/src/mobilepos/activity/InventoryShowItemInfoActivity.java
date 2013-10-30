@@ -16,10 +16,16 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class InventoryShowItemInfoActivity extends Activity {
+	/** text view name of product */
 	private TextView itemName;
+	/** text view brand of product */
 	private TextView itemBrand;
+	/** text view quantity of product */
 	private TextView itemQnty;
+	/** text view cost of product */
 	private TextView itemPrice;
+	
+	/** button back */
 	private Button backButton;
 	private Item item;
 	private CurrentItem currentItem;

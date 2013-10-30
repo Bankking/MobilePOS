@@ -238,7 +238,8 @@ public class InventoryAddMoreItemActivity extends Activity {
 	                if (editTextRowCount >= 1) 
 	                {
 	                    int lastBreakIndex = text.lastIndexOf("\n");
-	                    String newText = text.substring(0, lastBreakIndex);
+	                    String newText = Integer.toString(lastBreakIndex);
+	                    newText = text.substring(0);
 	                    ((EditText) v).setText("");
 	                    ((EditText) v).append(newText);
 	                }

@@ -150,15 +150,14 @@
 
            <TextView
                android:id="@+id/inventory_amp_t_buypricebathpertype"
-               android:layout_width="89dp"
+               android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:layout_weight="0.52"
                android:text="Baht/Box  :"
                android:textAppearance="?android:attr/textAppearanceMedium" />
 
            <EditText
                android:id="@+id/inventory_amp_f_buypricebathperbox"
-               android:layout_width="227dp"
+               android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:ems="10"
                android:inputType="number" >
@@ -181,7 +180,7 @@
 
             <EditText
                 android:id="@+id/inventory_amp_f_pieceperbox"
-                android:layout_width="134dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="number" >

@@ -1,9 +1,9 @@
-package mobilepos.activity;
+package ku.mobilepos.activity;
 
-import mobilepos.domain.CurrentItem;
-import mobilepos.domain.Inventory;
-import mobilepos.domain.Item;
-import mobilepos.domain.MockupInventory;
+import ku.mobilepos.domain.CurrentItem;
+import ku.mobilepos.domain.Inventory;
+import ku.mobilepos.domain.Item;
+import ku.mobilepos.domain.MockupInventory;
 
 import com.example.mobilepos.R;
 

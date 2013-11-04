@@ -1,4 +1,4 @@
-package mobilepos.domain;
+package ku.mobilepos.domain;
 
 public class Item {
 	private String itemId;

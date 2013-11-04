@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="mobilepos.activity.MainActivity"
+            android:name="ku.mobilepos.activity.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,10 +22,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="mobilepos.activity.InventoryAddMoreItemActivity"></activity>
-        <activity android:name="mobilepos.activity.InventoryShowItemInfoActivity"></activity>
-        <activity android:name="mobilepos.activity.SaleMainActivity"></activity>
-        <activity android:name="mobilepos.activity.SaleSelectItemActivity"></activity>
+        <activity android:name="ku.mobilepos.activity.InventoryAddMoreItemActivity"></activity>
+        <activity android:name="ku.mobilepos.activity.InventoryShowItemInfoActivity"></activity>
+        <activity android:name="ku.mobilepos.activity.SaleMainActivity"></activity>
+        <activity android:name="ku.mobilepos.activity.SaleSelectItemActivity"></activity>
     </application>
 
 </manifest>

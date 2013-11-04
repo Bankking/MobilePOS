@@ -1,11 +1,12 @@
-package mobilepos.activity;
+package ku.mobilepos.activity;
 
 import java.util.List;
 
-import mobilepos.domain.Cart;
-import mobilepos.domain.Inventory;
-import mobilepos.domain.Item;
-import mobilepos.domain.MockupInventory;
+import ku.mobilepos.domain.Cart;
+import ku.mobilepos.domain.Inventory;
+import ku.mobilepos.domain.Item;
+import ku.mobilepos.domain.MockupInventory;
+
 
 import com.example.mobilepos.R;
 

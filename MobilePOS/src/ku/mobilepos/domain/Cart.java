@@ -1,4 +1,4 @@
-package mobilepos.domain;
+package ku.mobilepos.domain;
 
 import java.util.ArrayList;
 import java.util.List;

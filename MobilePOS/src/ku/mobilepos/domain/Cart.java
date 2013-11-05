@@ -23,6 +23,7 @@ public class Cart {
 	
 	public void addToCart(Item item) {
 		itemInCart.add(item);
+		calculateSale(item);
 	}
 	
 	public void removeItem(int position) {
@@ -30,13 +31,15 @@ public class Cart {
 	}
 	
 	public void resetCart(){
+		this.totalSale = 0.0;
+		this.itemInCart = null;
 		this.cart = null;
 	}
 	
-	public void calculateSale(){
-		for (int i = 0; i < itemInCart.size(); i++) {
-			totalSale += itemInCart.get(i).getItemPrice();
-		}
+	public void calculateSale(Item item){
+		
+			totalSale += item.getItemPrice();
+		
 	}
 	
 	public double getTotalSale(){

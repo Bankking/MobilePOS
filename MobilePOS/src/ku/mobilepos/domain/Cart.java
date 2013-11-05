@@ -27,11 +27,13 @@ public class Cart {
 		}
 		return itemInCart;
 	}
+	
 	//get the quantity item in cart
 	public Integer getItemQuantity(int i){
 		return quantityItemInCart.get(i);
 	}
 	
+	//add item to cart
 	public void addToCart(Item item) {
 		boolean inCart = false;
 		int position = 0;
@@ -61,6 +63,7 @@ public class Cart {
 		itemInCart.remove(position);
 	}
 	
+	//reset cart
 	public void resetCart(){
 		this.totalSale = 0.0;
 		this.quantityItemInCart = null;
@@ -75,6 +78,7 @@ public class Cart {
 		
 	}
 	
+	//calculate total sale
 	public double getTotalSale(){
 		return totalSale;
 	}

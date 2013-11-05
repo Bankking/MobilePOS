@@ -33,7 +33,6 @@ public class SaleMainActivity extends Activity {
 	private Button clearButton;
 	private ListView itemInCartList;
 	private TextView totalPrice;
-	private List<Item> itemInCart;
 	private Cart cart;
 	private Inventory inventory;
 	private String[] itemInCartListStringArr;
@@ -135,7 +134,7 @@ public class SaleMainActivity extends Activity {
 						.getItemName();
 			}
 
-			itemInCartList = (ListView) findViewById(R.id.inventory_itemlist);
+			itemInCartList = (ListView) findViewById(R.id.sale_main_itemlist);
 			ArrayAdapter<String> itemListAdapter = new ArrayAdapter<String>(
 					this, android.R.layout.simple_list_item_1,
 					android.R.id.text1, itemInCartListStringArr);

@@ -2,9 +2,8 @@ package ku.mobilepos.domain;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import android.util.Log;
-
+//cart for add the list of item in.
 public class Cart {
 	private static Cart cart = null;
 	private List<Item> itemInCart = null;
@@ -14,11 +13,13 @@ public class Cart {
 		
 	}
 	
+	//if not have cart make cart
 	public static Cart getCartInstance() {
 		if (cart == null) cart = new Cart();
 		return cart;
 	}
 	
+	//check the item in cart
 	public List<Item> getItemListInCart() {
 		if (itemInCart == null) {
 			itemInCart = new ArrayList<Item>();
@@ -26,7 +27,7 @@ public class Cart {
 		}
 		return itemInCart;
 	}
-	
+	//get the quantity item in cart
 	public Integer getItemQuantity(int i){
 		return quantityItemInCart.get(i);
 	}
@@ -55,6 +56,7 @@ public class Cart {
 		
 	}
 	
+	//remove item in cart
 	public void removeItem(int position) {
 		itemInCart.remove(position);
 	}
@@ -66,6 +68,7 @@ public class Cart {
 		this.cart = null;
 	}
 	
+	//calculate total price
 	public void calculateSale(Item item){
 		
 			totalSale += item.getItemPrice();

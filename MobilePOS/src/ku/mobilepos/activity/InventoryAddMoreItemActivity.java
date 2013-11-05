@@ -8,6 +8,8 @@ import ku.mobilepos.domain.MockupInventory;
 
 
 import com.example.mobilepos.R;
+import ku.mobilepos.activity.IntentIntegrator;
+import ku.mobilepos.activity.IntentResult;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -20,6 +22,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class InventoryAddMoreItemActivity extends Activity {
 	/** name of product */
@@ -78,7 +81,6 @@ public class InventoryAddMoreItemActivity extends Activity {
 		newItem = new Item();
 		createAllFindViewById();
 		setAllEditTextToOneLine();
-
         /*scanBtn.setOnClickListener(new OnClickListener() {
 	        @Override
 	        public void onClick(View v){
@@ -91,6 +93,27 @@ public class InventoryAddMoreItemActivity extends Activity {
 	    		}
 	    	}
     	});*/
+		
+		/*public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+			//retrieve result of scanning - instantiate ZXing object
+			IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
+			//check we have a valid result
+			if (scanningResult != null) {
+				//get content from Intent Result
+				String scanContent = scanningResult.getContents();
+				//get format name of data scanned
+				String scanFormat = scanningResult.getFormatName();
+				//output to UI
+				formatTxt.setText("FORMAT: "+scanFormat);
+				contentTxt.setText("CONTENT: "+scanContent);
+			}
+			else{
+				//invalid scan data or scan canceled
+				Toast toast = Toast.makeText(getApplicationContext(), 
+						"No scan data received!", Toast.LENGTH_SHORT);
+				toast.show();
+			}
+		}*/
         
 		/**
 		 * when select cancel button it will go back to inventory page
@@ -115,28 +138,40 @@ public class InventoryAddMoreItemActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				newItem.setItemId(itemProductId.getText().toString());
-				newItem.setItemName(itemName.getText().toString());
-				newItem.setItemBrand(itemBrand.getText().toString());
-			
-				String totalPiece;
-				totalPiece = calculateTotalPiece(itemQntyType.getText().toString(), itemPiecePerBox.getText().toString());
-				newItem.setItemQnty(totalPiece);
+				if(itemName.getText().toString().equals("") 
+				|| itemBrand.getText().toString().equals("") 
+				|| itemPrice.getText().toString().equals("") 
+				|| itemPiecePerBox.getText().toString().equals(""))
+				{
+					Toast.makeText(getApplicationContext(),"Please fill all blank.", Toast.LENGTH_LONG)
+	  		        .show();
+				}
+				else
+				{
+					newItem.setItemId(itemProductId.getText().toString());
+					newItem.setItemName(itemName.getText().toString());
+					newItem.setItemBrand(itemBrand.getText().toString());
 				
-				String totalPrice;
-				totalPrice = calculateTotalBuyBaht(itemQntyType.getText().toString(),itemBuyPricePerBox.getText().toString());
-				newItem.setItemBuyPiece(itemQntyType.getText().toString());
-				newItem.setItemPrice(itemPrice.getText().toString());
-				newItem.setItemBuyPriceBahtPerBox(itemBuyPricePerBox.getText().toString());
-				pricePerPiece = calculatePricePerPiece(Integer.parseInt(totalPiece), totalPrice);
-	//			updatePricePerPiece(itemPiecePerBox);
-				itemBuyPriceCal.setText("  "+pricePerPiece+"  ");
-				newItem.setItemPricePerPiece(pricePerPiece);
-				newItem.setItemBuyBahtPerPiece(pricePerPiece);
-				inventory.addItem(newItem);
-				Intent goInventory = new Intent(getApplicationContext(),
-						MainActivity.class);
-				startActivity(goInventory);
+					
+					String totalPiece;
+					totalPiece = calculateTotalPiece(itemQntyType.getText().toString(), itemPiecePerBox.getText().toString());
+					newItem.setItemQnty(totalPiece);
+					
+					String totalPrice;
+					totalPrice = calculateTotalBuyBaht(itemQntyType.getText().toString(),itemBuyPricePerBox.getText().toString());
+					newItem.setItemBuyPiece(itemQntyType.getText().toString());
+					newItem.setItemPrice(itemPrice.getText().toString());
+					newItem.setItemBuyPriceBahtPerBox(itemBuyPricePerBox.getText().toString());
+					pricePerPiece = calculatePricePerPiece(Integer.parseInt(totalPiece), totalPrice);
+		//			updatePricePerPiece(itemPiecePerBox);
+					itemBuyPriceCal.setText("  "+pricePerPiece+"  ");
+					newItem.setItemPricePerPiece(pricePerPiece);
+					newItem.setItemBuyBahtPerPiece(pricePerPiece);
+					inventory.addItem(newItem);
+					Intent goInventory = new Intent(getApplicationContext(),
+							MainActivity.class);
+					startActivity(goInventory);
+				}
 			}
 		});
 

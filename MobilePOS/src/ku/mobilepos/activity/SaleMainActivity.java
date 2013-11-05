@@ -51,7 +51,7 @@ public class SaleMainActivity extends Activity {
 		inventoryButton = (Button)findViewById(R.id.inventory);
 		historyButton = (Button)findViewById(R.id.history);
 		customerButton = (Button)findViewById(R.id.customer);
-		inventory = new MockupInventory();
+		inventory = MockupInventory.getInstance();
 		cart = Cart.getCartInstance();
 		createItemListStringArr();
 		saleButton.setOnClickListener(new OnClickListener() {

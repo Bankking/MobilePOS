@@ -2,6 +2,7 @@ package ku.mobilepos.activity;
 
 import java.util.List;
 
+import ku.mobilepos.domain.Inventory;
 import ku.mobilepos.domain.Item;
 import ku.mobilepos.domain.MockupInventory;
 
@@ -54,8 +55,9 @@ public class InventoryAddMoreItemActivity extends Activity {
 	private Button cancelButton;
 
 	private Item newItem;
-	/** create list of inventory */
-	private List<Item> inventory;
+	/** create inventory */
+	private Inventory inventory;
+	
 	/** cost per piece */
 	private String pricePerPiece;
 
@@ -64,6 +66,7 @@ public class InventoryAddMoreItemActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.inventory_additem);
 		inventory = MockupInventory.getInstance();
+		//itemList = inventory.getItemList();
 		newItem = new Item();
 		createAllFindViewById();
 		setAllEditTextToOneLine();
@@ -107,7 +110,7 @@ public class InventoryAddMoreItemActivity extends Activity {
 	//			updatePricePerPiece(itemPiecePerBox);
 				itemBuyPriceCal.setText("  "+pricePerPiece+"  ");
 				newItem.setItemBuyBahtPerPiece(pricePerPiece);
-				inventory.add(newItem);
+				inventory.addItem(newItem);
 				Intent goInventory = new Intent(getApplicationContext(),
 						MainActivity.class);
 				startActivity(goInventory);

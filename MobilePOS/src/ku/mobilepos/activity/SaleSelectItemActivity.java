@@ -3,6 +3,7 @@ package ku.mobilepos.activity;
 import java.util.List;
 
 import ku.mobilepos.domain.Cart;
+import ku.mobilepos.domain.Inventory;
 import ku.mobilepos.domain.Item;
 import ku.mobilepos.domain.MockupInventory;
 
@@ -24,7 +25,7 @@ import android.widget.AdapterView.OnItemClickListener;
 public class SaleSelectItemActivity extends Activity {
 	private Button cancelButton;
 	private ListView itemInInventory;
-	private List<Item> inventory;
+	private Inventory inventory;
 	private String[] inventoryListStringArr;
 	private Cart cart;
 	private List<Item> itemInCart;
@@ -52,10 +53,10 @@ public class SaleSelectItemActivity extends Activity {
 	}
 	
 	public void createItemListStringArr(){
-    	if (inventory.size()!=0){
-    		inventoryListStringArr = new String[inventory.size()];
+    	if (inventory.getItemList().size()!=0){
+    		inventoryListStringArr = new String[inventory.getItemList().size()];
     		for (int i = 0; i < inventoryListStringArr.length; i++) {
-    			inventoryListStringArr[i] =  inventory.get(i).getItemName();
+    			inventoryListStringArr[i] =  inventory.getItemList().get(i).getItemName()+"    Quantity: "+inventory.getItemList().get(i);
     		}
         	
     		itemInInventory = (ListView)findViewById(R.id.sale_iii_itemlist);
@@ -66,8 +67,7 @@ public class SaleSelectItemActivity extends Activity {
     			@Override
     			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
     				// TODO Auto-generated method stub
-    				cart.addToCart(inventory.get(position));
-    				int itemPosition  = position;
+    				cart.addToCart(inventory.getItemList().get(position));
     				String  itemValue = (String)itemInInventory.getItemAtPosition(position);
     				// Show Alert 
     				Toast.makeText(getApplicationContext(), "+1"+itemValue+" to Cart", Toast.LENGTH_LONG)

@@ -3,6 +3,7 @@ package ku.mobilepos.activity;
 import java.util.List;
 
 import ku.mobilepos.domain.CurrentItem;
+import ku.mobilepos.domain.Inventory;
 import ku.mobilepos.domain.Item;
 import ku.mobilepos.domain.MockupInventory;
 
@@ -36,7 +37,7 @@ public class MainActivity extends Activity {
 	
 	/** list of product */
 	private ListView allItemList;
-	private List<Item> inventory;
+	private Inventory inventory;
 	private String[] inventoryListStringArr;
 	
     @Override
@@ -102,10 +103,10 @@ public class MainActivity extends Activity {
     }  
  
     public void createItemListStringArr(){
-    	if (inventory.size()!=0){
-        	inventoryListStringArr = new String[inventory.size()];
+    	if (inventory.getItemList().size()!=0){
+        	inventoryListStringArr = new String[inventory.getItemList().size()];
         	for (int i = 0; i < inventoryListStringArr.length; i++) {
-    			inventoryListStringArr[i] =  inventory.get(i).getItemName();
+    			inventoryListStringArr[i] =  inventory.getItemList().get(i).getItemName();
     		}
         	
         	allItemList = (ListView)findViewById(R.id.inventory_itemlist);
@@ -127,7 +128,7 @@ public class MainActivity extends Activity {
     				String  itemValue = (String)allItemList.getItemAtPosition(position);            
     		        // Show Alert 
     		        Toast.makeText(getApplicationContext(),
-    		        "Position :"+itemPosition+"  ListItem : " +itemValue+"\nQuantity : "+inventory.get(position).getItemQnty()+" Brand : "+inventory.get(position).getItemBrand() , Toast.LENGTH_LONG)
+    		        "Position :"+itemPosition+"  ListItem : " +itemValue+"\nQuantity : "+inventory.getItemByPostion(position).getItemQnty()+" Brand : "+inventory.getItemByPostion(position).getItemBrand() , Toast.LENGTH_LONG)
     		        .show();
     			}
     		});

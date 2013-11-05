@@ -5,13 +5,22 @@ import java.util.List;
 
 
 public class MockupInventory implements Inventory {
-	private static List<Item> itemList = null;
+	private List<Item> itemList = null;
+	private static Inventory inventory = null;
 	
-	public static List<Item> getInstance(){
+	private MockupInventory(){
 		
+	}
+	public static Inventory getInstance(){
+		
+		if (inventory == null) inventory = new MockupInventory();
+		return inventory;
+		
+	}
+	
+	public List<Item> getItemList(){
 		if (itemList == null) itemList = new ArrayList<Item>();
 		return itemList;
-		
 	}
 	
 	@Override
@@ -44,11 +53,7 @@ public class MockupInventory implements Inventory {
 			
 	}
 
-	@Override
-	public List<Item> getItemList() {
-		// TODO Auto-generated method stub
-		return itemList;
-	}
+	
 
 	@Override
 	public boolean isEmpty() {
@@ -58,4 +63,6 @@ public class MockupInventory implements Inventory {
 		}		
 		return  true;
 	}
+
+	
 }

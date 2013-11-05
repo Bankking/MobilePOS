@@ -46,6 +46,17 @@ public class MockupInventory implements Inventory {
 		return null;
 	}
 	
+	@Override
+	public Item getItemById(String itemId) {
+		// TODO Auto-generated method stub
+		for (int i = 0; i < itemList.size(); i++) {
+			if (itemList.get(i).getItemId().equals(itemId)){
+				return itemList.get(i);
+			}
+		}
+		return null;
+	}
+	
 	public Item getItemByPostion(int i) {
 		// TODO Auto-generated method stub
 		

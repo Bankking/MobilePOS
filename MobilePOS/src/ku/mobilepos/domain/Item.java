@@ -7,6 +7,10 @@ public class Item {
 	private int itemQnty;
 	private double itemPrice;
 	private double itemBuyBahtPerPiece;
+	private int itemBuyPiece;
+	private double itemBuyPriceBahtPerBox;
+	private int itemPiecePerBox;
+	private double itemPricePerPiece;
 	
 	/*
 	 * set ItemId
@@ -102,8 +106,39 @@ public class Item {
 	public double getItemBuyBahtPerPiece(){
 		return itemBuyBahtPerPiece;
 	}
-
 	
+	public void setItemBuyPiece(String itemBuyPiece){
+		this.itemBuyPiece = Integer.parseInt(itemBuyPiece);
+	}
+	
+	
+	public int getItemBuyPiece(){
+		return itemBuyPiece;
+	}
+	public void setItemBuyPriceBahtPerBox(String itemBuyPriceBahtPerBox){
+		this.itemBuyPriceBahtPerBox = Double.parseDouble(itemBuyPriceBahtPerBox);
+	}
+	
+	
+	public double getItemBuyPriceBahtPerBox(){
+		return itemBuyPriceBahtPerBox;
+	}
 
+	public void setItemPiecePerBox(String itemPiecePerBox){
+		this.itemPiecePerBox = Integer.parseInt(itemPiecePerBox);
+	}
+	
+	
+	public int getItemPiecePerBox(){
+		return itemPiecePerBox;
+	}
+	
+	public void setItemPricePerPiece(String itemPricePerPiece){
+		this.itemPricePerPiece = Double.parseDouble(itemPricePerPiece);
+	}
+
+	public double getItemPricePerPiece(){
+		return itemPricePerPiece;
+	}
 
 }

@@ -53,6 +53,8 @@ public class InventoryAddMoreItemActivity extends Activity {
 	private Button confirmButton;
 	/** button to cancel product */
 	private Button cancelButton;
+	private Button checkButton;
+	private Button calButton;
 
 	private Item newItem;
 	/** create inventory */
@@ -104,11 +106,13 @@ public class InventoryAddMoreItemActivity extends Activity {
 				
 				String totalPrice;
 				totalPrice = calculateTotalBuyBaht(itemQntyType.getText().toString(),itemBuyPricePerBox.getText().toString());
+				newItem.setItemBuyPiece(itemQntyType.getText().toString());
 				newItem.setItemPrice(itemPrice.getText().toString());
-				
+				newItem.setItemBuyPriceBahtPerBox(itemBuyPricePerBox.getText().toString());
 				pricePerPiece = calculatePricePerPiece(Integer.parseInt(totalPiece), totalPrice);
 	//			updatePricePerPiece(itemPiecePerBox);
 				itemBuyPriceCal.setText("  "+pricePerPiece+"  ");
+				newItem.setItemPricePerPiece(pricePerPiece);
 				newItem.setItemBuyBahtPerPiece(pricePerPiece);
 				inventory.addItem(newItem);
 				Intent goInventory = new Intent(getApplicationContext(),
@@ -117,6 +121,33 @@ public class InventoryAddMoreItemActivity extends Activity {
 			}
 		});
 
+		/**
+		 * check if product is already in inventory
+		 */
+		checkButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				if (itemProductId.getText() != null){
+					
+					//newItem.setItemId(itemProductId.getText().toString());
+					if (inventory.getItemById(itemProductId.getText().toString())!=null){
+						Item item = inventory.getItemById(itemProductId.getText().toString());
+						itemName.setText(item.getItemName());
+						itemBrand.setText(item.getItemBrand());
+						itemQntyType.setText(item.getItemBuyPiece());
+						itemBuyPricePerBox.setText(""+item.getItemBuyPriceBahtPerBox());
+						itemPiecePerBox.setText(""+item.getItemPiecePerBox());
+						itemBuyPriceCal.setText("  "+item.getItemPricePerPiece()+"  ");
+						itemPrice.setText(""+item.getItemPrice());
+					}
+				}
+			
+				
+			}
+		});
+		
 		/**
 		 * 
 		 */
@@ -190,6 +221,8 @@ public class InventoryAddMoreItemActivity extends Activity {
 		//Button
 		confirmButton = (Button) findViewById(R.id.inventory_amp_b_confirm);
 		cancelButton = (Button) findViewById(R.id.inventory_amp_b_cancel);
+		checkButton = (Button) findViewById(R.id.inventory_amp_b_check);
+		calButton = (Button) findViewById(R.id.inventory_amp_b_calculate);
 		
 		//RadioGroup
 		itemQntyGroup = (RadioGroup) findViewById(R.id.inventory_amp_rbg_buyqnty);

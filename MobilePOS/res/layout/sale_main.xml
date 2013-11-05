@@ -87,7 +87,28 @@
                android:textSize="30sp" />
              
     </LinearLayout>
-     
+     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/sale_main_b_confirmsell"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_weight="1.14"
+            android:text="Confirm Sell"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/sale_main_b_cancel"
+            android:layout_width="84dp"
+            android:layout_height="30dp"
+            android:layout_weight="0.07"
+            android:text="Clear Cart"
+            android:textSize="12sp" />
+
+    </LinearLayout>
      <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -101,6 +122,7 @@
             android:text="Add item to cart"
             android:textSize="12sp" />
     </LinearLayout>
+
     
      
       <LinearLayout

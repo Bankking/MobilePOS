@@ -46,6 +46,7 @@ public class SaleSelectItemActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				cart.calculateSale();
 				Intent goSaleMain = new Intent(getApplicationContext(),SaleMainActivity.class);
     			startActivity(goSaleMain);
 			}

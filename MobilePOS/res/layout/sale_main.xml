@@ -81,7 +81,7 @@
                android:id="@+id/sale_main_t_price_total_cal"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:text="xxx.-"
+               android:text="0.0 .-"
                android:textAppearance="?android:attr/textAppearanceMedium"
                
                android:textSize="30sp" />

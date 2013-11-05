@@ -32,7 +32,8 @@ public class SaleMainActivity extends Activity {
 	private Button confirmButton;
 	private Button clearButton;
 	private ListView itemInCartList;
-	private TextView totalPrice;
+	private TextView totalPriceTextView;
+	private double totalPrice;
 	private Cart cart;
 	private Inventory inventory;
 	private String[] itemInCartListStringArr;
@@ -45,7 +46,7 @@ public class SaleMainActivity extends Activity {
 
 		addToCartButton = (Button) findViewById(R.id.sale_main_b_add_cart);
 		itemInCartList = (ListView) findViewById(R.id.sale_main_itemlist);
-		totalPrice = (TextView) findViewById(R.id.sale_main_t_price_total_cal);
+		totalPriceTextView = (TextView) findViewById(R.id.sale_main_t_price_total_cal);
 		saleButton = (Button) findViewById(R.id.sale);
 		inventoryButton = (Button) findViewById(R.id.inventory);
 		historyButton = (Button) findViewById(R.id.history);
@@ -55,6 +56,8 @@ public class SaleMainActivity extends Activity {
 		inventory = MockupInventory.getInstance();
 		cart = Cart.getCartInstance();
 		createItemListStringArr();
+		
+		totalPriceTextView.setText(cart.getTotalSale()+" .-");
 		saleButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -132,13 +135,16 @@ public class SaleMainActivity extends Activity {
 			for (int i = 0; i < itemInCartListStringArr.length; i++) {
 				itemInCartListStringArr[i] = cart.getItemListInCart().get(i)
 						.getItemName();
+				
 			}
-
+		
 			itemInCartList = (ListView) findViewById(R.id.sale_main_itemlist);
 			ArrayAdapter<String> itemListAdapter = new ArrayAdapter<String>(
 					this, android.R.layout.simple_list_item_1,
 					android.R.id.text1, itemInCartListStringArr);
 			itemInCartList.setAdapter(itemListAdapter);
+			
+			
 			itemInCartList.setOnItemClickListener(new OnItemClickListener() {
 
 				@Override

@@ -117,13 +117,7 @@ public class MainActivity extends Activity {
     		@Override
     		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
     				// TODO Auto-generated method stub
-    				/*
-    				CurrentItem currentItem = CurrentItem.getInstance();
-    		        currentItem.setCurrentItem(inventory.get(position));
-    		        currentItem.setItemPosition(position);            
-     				Intent goItemInfo = new Intent(getApplicationContext(),InventoryShowItemInfoActivity.class);
-     				startActivity(goItemInfo);
-    				*/
+    				
     				int itemPosition = position;
     				String  itemValue = (String)allItemList.getItemAtPosition(position);            
     		        // Show Alert 

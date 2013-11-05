@@ -106,7 +106,9 @@ public class MainActivity extends Activity {
     	if (inventory.getItemList().size()!=0){
         	inventoryListStringArr = new String[inventory.getItemList().size()];
         	for (int i = 0; i < inventoryListStringArr.length; i++) {
-    			inventoryListStringArr[i] =  inventory.getItemList().get(i).getItemName();
+    			inventoryListStringArr[i] =  "Product Name: "+inventory.getItemList().get(i).getItemName()+"\n Sell Price: "
+        	+inventory.getItemList().get(i).getItemPrice()
+        	+"\n Quantity: "+inventory.getItemList().get(i).getItemQnty();
     		}
         	
         	allItemList = (ListView)findViewById(R.id.inventory_itemlist);

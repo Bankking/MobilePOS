@@ -29,6 +29,8 @@ public class SaleMainActivity extends Activity {
 	private Button inventoryButton;
 	private Button customerButton;
 	private Button historyButton;
+	private Button confirmButton;
+	private Button clearButton;
 	private ListView itemInCartList;
 	private TextView totalPrice;
 	private List<Item> itemInCart;
@@ -49,6 +51,8 @@ public class SaleMainActivity extends Activity {
 		inventoryButton = (Button) findViewById(R.id.inventory);
 		historyButton = (Button) findViewById(R.id.history);
 		customerButton = (Button) findViewById(R.id.customer);
+		confirmButton = (Button) findViewById(R.id.sale_main_b_confirmsell);
+		clearButton = (Button) findViewById(R.id.sale_main_b_cancel);
 		inventory = MockupInventory.getInstance();
 		cart = Cart.getCartInstance();
 		createItemListStringArr();
@@ -107,11 +111,25 @@ public class SaleMainActivity extends Activity {
 				}
 			}
 		});
+		
+		clearButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				cart.resetCart();
+				Toast.makeText(
+						getApplicationContext(),
+						"Cart is reset.",
+						Toast.LENGTH_SHORT).show();
+			}
+		});
+		
 	}
 
 	public void createItemListStringArr() {
 		if (cart.getItemListInCart().size() != 0) {
-			itemInCartListStringArr = new String[cart.getItemListInCart().size()];
+			itemInCartListStringArr = new String[cart.getItemListInCart()
+					.size()];
 			for (int i = 0; i < itemInCartListStringArr.length; i++) {
 				itemInCartListStringArr[i] = cart.getItemListInCart().get(i)
 						.getItemName();
@@ -133,10 +151,8 @@ public class SaleMainActivity extends Activity {
 					String itemValue = (String) itemInCartList
 							.getItemAtPosition(position);
 					// Show Alert
-					Toast.makeText(
-							getApplicationContext(),
-							"click", Toast.LENGTH_LONG)
-							.show();
+					Toast.makeText(getApplicationContext(), "click",
+							Toast.LENGTH_LONG).show();
 				}
 			});
 		}

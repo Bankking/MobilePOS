@@ -28,5 +28,9 @@ public class Cart {
 		itemInCart.remove(position);
 	}
 	
+	public void resetCart(){
+		this.cart = null;
+	}
+	
 
 }

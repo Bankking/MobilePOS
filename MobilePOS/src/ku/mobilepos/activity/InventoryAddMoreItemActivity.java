@@ -48,14 +48,20 @@ public class InventoryAddMoreItemActivity extends Activity {
 	private TextView itemBuyType;
 	/** text view of cost of product by bath */
 	private TextView itemBuyBahtPerType;
+	private TextView formatTxt;
+	private TextView contentTxt;
 	
 	/** button to confirm for add product */
 	private Button confirmButton;
 	/** button to cancel product */
 	private Button cancelButton;
+	/** button to check duplicate product */
 	private Button checkButton;
+	/** button to calculate total cost of product */
 	private Button calButton;
-
+	/** button to scan product by using barcode scanner */
+	private Button scanBtn;
+	
 	private Item newItem;
 	/** create inventory */
 	private Inventory inventory;
@@ -72,7 +78,20 @@ public class InventoryAddMoreItemActivity extends Activity {
 		newItem = new Item();
 		createAllFindViewById();
 		setAllEditTextToOneLine();
-		
+
+        /*scanBtn.setOnClickListener(new OnClickListener() {
+	        @Override
+	        public void onClick(View v){
+	    		//check for scan button
+	    		if(v.getId()==R.id.scan_button){
+	    			//instantiate ZXing integration class
+	    			IntentIntegrator scanIntegrator = new IntentIntegrator(null);
+	    			//start scanning
+	    			scanIntegrator.initiateScan();
+	    		}
+	    	}
+    	});*/
+        
 		/**
 		 * when select cancel button it will go back to inventory page
 		 */
@@ -223,6 +242,7 @@ public class InventoryAddMoreItemActivity extends Activity {
 		cancelButton = (Button) findViewById(R.id.inventory_amp_b_cancel);
 		checkButton = (Button) findViewById(R.id.inventory_amp_b_check);
 		calButton = (Button) findViewById(R.id.inventory_amp_b_calculate);
+		scanBtn = (Button)findViewById(R.id.scan_button);      
 		
 		//RadioGroup
 		itemQntyGroup = (RadioGroup) findViewById(R.id.inventory_amp_rbg_buyqnty);
@@ -232,6 +252,8 @@ public class InventoryAddMoreItemActivity extends Activity {
 		itemBuyType = (TextView) findViewById(R.id.inventory_amp_t_buyqntytype);
 		itemBuyPriceText = (TextView) findViewById(R.id.inventory_amp_t_pieceperbox);
 		itemBuyBahtPerType = (TextView) findViewById(R.id.inventory_amp_t_buypricebathpertype);
+		formatTxt = (TextView)findViewById(R.id.scan_format);
+        contentTxt = (TextView)findViewById(R.id.scan_content);
 	}
 
 	

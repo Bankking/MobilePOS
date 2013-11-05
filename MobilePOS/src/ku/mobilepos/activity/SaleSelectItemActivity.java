@@ -52,7 +52,7 @@ public class SaleSelectItemActivity extends Activity {
 			}
 		});
 	}
-	
+	//create the item list
 	public void createItemListStringArr(){
     	if (inventory.getItemList().size()!=0){
     		inventoryListStringArr = new String[inventory.getItemList().size()];
@@ -65,9 +65,9 @@ public class SaleSelectItemActivity extends Activity {
     		itemInInventory.setAdapter(itemListAdapter); 
     		itemInInventory.setOnItemClickListener(new OnItemClickListener() {
 
+    			//check the item on inventory and add to cart
     			@Override
     			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-    				// TODO Auto-generated method stub
     				cart.addToCart(inventory.getItemList().get(position));
     				String  itemValue = (String)itemInInventory.getItemAtPosition(position);
     				// Show Alert 

@@ -156,7 +156,7 @@ public class SaleMainActivity extends Activity {
 					String itemValue = (String) itemInCartList
 							.getItemAtPosition(position);
 					// Show Alert
-					Toast.makeText(getApplicationContext(), "click",
+					Toast.makeText(getApplicationContext(), "click ttt",
 							Toast.LENGTH_LONG).show();
 				}
 			});

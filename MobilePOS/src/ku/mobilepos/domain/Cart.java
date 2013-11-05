@@ -33,7 +33,9 @@ public class Cart {
 		return quantityItemInCart.get(i);
 	}
 	
-	//add item to cart
+	/*add item to cart
+	 * @param item
+	 */
 	public void addToCart(Item item) {
 		boolean inCart = false;
 		int position = 0;
@@ -58,7 +60,9 @@ public class Cart {
 		
 	}
 	
-	//remove item in cart
+	/*remove item in cart
+	 * @param position of item
+	 */
 	public void removeItem(int position) {
 		itemInCart.remove(position);
 	}
@@ -71,14 +75,19 @@ public class Cart {
 		this.cart = null;
 	}
 	
-	//calculate total price
+	/*calculate total price
+	 * @param item 
+	 * @return total price
+	*/
 	public void calculateSale(Item item){
 		
 			totalSale += item.getItemPrice();
 		
 	}
 	
-	//calculate total sale
+	/*calculate total sale
+	 * @return total sale
+	 */
 	public double getTotalSale(){
 		return totalSale;
 	}

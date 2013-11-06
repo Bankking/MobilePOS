@@ -119,6 +119,8 @@ public class SaleMainActivity extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				cart.resetCart();
+				Intent refreshCart = new Intent(getApplicationContext(),SaleMainActivity.class);
+    			startActivity(refreshCart);
 				Toast.makeText(
 						getApplicationContext(),
 						"Cart is reset.",

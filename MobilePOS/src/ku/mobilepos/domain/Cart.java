@@ -21,7 +21,7 @@ public class Cart {
 	
 	//check the item in cart
 	public List<Item> getItemListInCart() {
-		if (itemInCart == null) {
+		if (itemInCart == null) { 
 			itemInCart = new ArrayList<Item>();
 			quantityItemInCart = new ArrayList<Integer>();
 		}
@@ -33,7 +33,7 @@ public class Cart {
 		return quantityItemInCart.get(i);
 	}
 	
-	/*add item to cart
+	/* add item to cart
 	 * @param item
 	 */
 	public void addToCart(Item item) {

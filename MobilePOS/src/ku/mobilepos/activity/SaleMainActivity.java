@@ -133,8 +133,8 @@ public class SaleMainActivity extends Activity {
 			itemInCartListStringArr = new String[cart.getItemListInCart()
 				.size()];
 			for (int i = 0; i < itemInCartListStringArr.length; i++) {
-				itemInCartListStringArr[i] = cart.getItemListInCart().get(i)
-						.getItemName()+"\nPrice: "+cart.getItemListInCart().get(i).getItemPrice()+"\nQuantity: "+cart.getItemQuantity(i)+1;
+				itemInCartListStringArr[i] = "Product name: " + cart.getItemListInCart().get(i)
+						.getItemName()+"\nPrice: "+cart.getItemListInCart().get(i).getItemPrice()+"\nQuantity: "+cart.getItemQuantity(i);
 				
 			}
 		

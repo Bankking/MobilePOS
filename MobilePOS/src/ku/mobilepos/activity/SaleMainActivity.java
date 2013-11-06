@@ -131,10 +131,10 @@ public class SaleMainActivity extends Activity {
 	public void createItemListStringArr() {
 		if (cart.getItemListInCart().size() != 0) {
 			itemInCartListStringArr = new String[cart.getItemListInCart()
-					.size()];
+				.size()];
 			for (int i = 0; i < itemInCartListStringArr.length; i++) {
 				itemInCartListStringArr[i] = cart.getItemListInCart().get(i)
-						.getItemName()+"\n Price: "+cart.getItemListInCart().get(i).getItemPrice()+"\n Quantity: "+cart.getItemQuantity(i);
+						.getItemName()+"\n Price: "+cart.getItemListInCart().get(i).getItemPrice()+"\n Quantity: "+cart.getItemQuantity(i)+1;
 				
 			}
 		
@@ -156,7 +156,7 @@ public class SaleMainActivity extends Activity {
 					String itemValue = (String) itemInCartList
 							.getItemAtPosition(position);
 					// Show Alert
-					Toast.makeText(getApplicationContext(), "click ttt",
+					Toast.makeText(getApplicationContext(), "click",
 							Toast.LENGTH_LONG).show();
 				}
 			});

@@ -114,9 +114,8 @@ public class MainActivity extends Activity {
     	if (inventory.getItemList().size()!=0){
         	inventoryListStringArr = new String[inventory.getItemList().size()];
         	for (int i = 0; i < inventoryListStringArr.length; i++) {
-    			inventoryListStringArr[i] =  "Product Name: "+inventory.getItemList().get(i).getItemName()+"\n Sell Price: "
-        	+inventory.getItemList().get(i).getItemPrice()
-        	+"\n Quantity: "+inventory.getItemList().get(i).getItemQnty();
+    			inventoryListStringArr[i] =  "\nProduct Name: "+inventory.getItemList().get(i).getItemName().toString() +"\nSell Price: "
+    										+inventory.getItemList().get(i).getItemPrice();
     		}
         	
         	allItemList = (ListView)findViewById(R.id.inventory_itemlist);
@@ -132,7 +131,8 @@ public class MainActivity extends Activity {
     				String  itemValue = (String)allItemList.getItemAtPosition(position);            
     		        // Show Alert 
     		        Toast.makeText(getApplicationContext(),
-    		        "Position :"+itemPosition+"  ListItem : " +itemValue+"\nQuantity : "+inventory.getItemByPostion(position).getItemQnty()+" Brand : "+inventory.getItemByPostion(position).getItemBrand() , Toast.LENGTH_LONG)
+    		        "Position :"+ (itemPosition+1) +"\nQuantity : "+inventory.getItemByPostion(position).getItemQnty()+"\nBrand : "
+    		        +inventory.getItemByPostion(position).getItemBrand() , Toast.LENGTH_LONG)
     		        .show();
     			}
     		});

@@ -57,7 +57,7 @@ public class SaleSelectItemActivity extends Activity {
     	if (inventory.getItemList().size()!=0){
     		inventoryListStringArr = new String[inventory.getItemList().size()];
     		for (int i = 0; i < inventoryListStringArr.length; i++) {
-    			inventoryListStringArr[i] =  inventory.getItemList().get(i).getItemName();
+    			inventoryListStringArr[i] =  "Product name: " + inventory.getItemList().get(i).getItemName()+"\nQuantity: "+inventory.getItemList().get(i).getItemQnty();
     		}
         	
     		itemInInventory = (ListView)findViewById(R.id.sale_iii_itemlist);
@@ -69,9 +69,8 @@ public class SaleSelectItemActivity extends Activity {
     			@Override
     			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
     				cart.addToCart(inventory.getItemList().get(position));
-    				String  itemValue = (String)itemInInventory.getItemAtPosition(position);
     				// Show Alert 
-    				Toast.makeText(getApplicationContext(), "Add: "+itemValue+" to Cart", Toast.LENGTH_LONG)
+    				Toast.makeText(getApplicationContext(), "Add "+ inventory.getItemList().get(position).getItemName() +" to Cart", Toast.LENGTH_LONG)
     				.show();			
     			}
     		});

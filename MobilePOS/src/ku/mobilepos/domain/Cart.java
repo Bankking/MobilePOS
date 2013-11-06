@@ -9,6 +9,7 @@ public class Cart {
 	private List<Item> itemInCart = null;
 	private List<Integer> quantityItemInCart = null;
 	private double totalSale;
+	private int quantity=10;
 	private Cart(){
 		
 	}
@@ -43,17 +44,20 @@ public class Cart {
 			if (item == itemInCart.get(i)){
 				inCart = true;
 				position = i;
+				//this.quantity++;
 			}
 		}
 		if (inCart){
 			int j = quantityItemInCart.get(position);
-			quantityItemInCart.set(position, j++);
+			quantityItemInCart.set(position, quantity);
 			Log.d("aaaaaa", "aaaaaaaaaaaaaaa");
+			this.quantity++;
 			
 		}
 		else {
 			itemInCart.add(item);
-			quantityItemInCart.add(1);
+			quantityItemInCart.add(quantity);
+			this.quantity++;
 		}
 		
 		calculateSale(item);

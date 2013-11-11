@@ -3,6 +3,7 @@ package ku.mobilepos.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class MockupCustomerList implements CustomerList{
 	
 	private static CustomerList customerList = null;

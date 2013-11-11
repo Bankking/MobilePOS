@@ -2,7 +2,6 @@ package ku.mobilepos.activity;
 
 import java.util.List;
 
-import ku.mobilepos.domain.CurrentItem;
 import ku.mobilepos.domain.Inventory;
 import ku.mobilepos.domain.Item;
 import ku.mobilepos.domain.MockupInventory;

@@ -1,6 +1,5 @@
 package ku.mobilepos.activity;
 
-import ku.mobilepos.domain.CurrentItem;
 import ku.mobilepos.domain.Inventory;
 import ku.mobilepos.domain.Item;
 import ku.mobilepos.domain.MockupInventory;
@@ -28,7 +27,7 @@ public class InventoryShowItemInfoActivity extends Activity {
 	/** button back */
 	private Button backButton;
 	private Item item;
-	private CurrentItem currentItem;
+	
 	private Inventory inventory;
 
 	@Override
@@ -36,9 +35,9 @@ public class InventoryShowItemInfoActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.inventory_item_info);
-		currentItem = CurrentItem.getInstance();
+		
 		inventory = (Inventory) MockupInventory.getInstance();
-		item = inventory.getItemByPostion(currentItem.getItemPosition());
+		
 		//if (item.getItemName().equals(null)){
 		itemName.setText(item.getItemName());
 		itemBrand.setText(item.getItemBrand());

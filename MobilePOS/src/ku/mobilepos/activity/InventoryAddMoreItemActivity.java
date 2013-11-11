@@ -8,8 +8,6 @@ import ku.mobilepos.domain.MockupInventory;
 
 
 import com.example.mobilepos.R;
-import ku.mobilepos.activity.IntentIntegrator;
-import ku.mobilepos.activity.IntentResult;
 
 import android.app.Activity;
 import android.content.Intent;

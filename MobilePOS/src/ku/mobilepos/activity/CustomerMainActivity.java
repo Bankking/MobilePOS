@@ -1,8 +1,8 @@
 package ku.mobilepos.activity;
 
 
-import ku.mobilepos.domain.Inventory;
-import ku.mobilepos.domain.MockupInventory;
+import ku.mobilepos.domain.CustomerList;
+import ku.mobilepos.domain.MockupCustomerList;
 
 
 import com.example.mobilepos.R;
@@ -18,10 +18,9 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends Activity {
+public class CustomerMainActivity extends Activity {
 	/** add button for add product to cart */
 	private Button addButton;
 	/** inventory button for go to inventory */
@@ -34,17 +33,16 @@ public class MainActivity extends Activity {
 	private Button historyButton;
 	
 	/** list of product */
-	private ListView allItemList;
-	private Inventory inventory;
-	private String[] inventoryListStringArr;
+	private ListView allCustomerList;
+	private CustomerList customerList;
+	private String[] customerListStringArr;
 	
-	private Button scanBtn;
-  	private TextView formatTxt, contentTxt;
+
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.inventory_main);
+        setContentView(R.layout.customer_main);
         
         inventoryButton = (Button) findViewById(R.id.inventory);
         saleButton = (Button) findViewById(R.id.sale);
@@ -56,8 +54,8 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Toast.makeText(getApplicationContext(),"Your current page is already Inventory", Toast.LENGTH_LONG)
-  		        .show();
+				Intent goInventoryPage = new Intent(getApplicationContext(),MainActivity.class);
+    			startActivity(goInventoryPage);
 			}
         });
     	
@@ -87,47 +85,49 @@ public class MainActivity extends Activity {
     		@Override
     		public void onClick(View v) {
     			// TODO Auto-generated method stub
-    			Intent goCusPage = new Intent(getApplicationContext(),CustomerMainActivity.class);
-    			startActivity(goCusPage);
+    			Toast.makeText(getApplicationContext(),"Your current page is already Customer", Toast.LENGTH_LONG)
+  		        .show();
     		}
         });
         
-        inventory = MockupInventory.getInstance();
+        customerList = MockupCustomerList.getInstance();
         createItemListStringArr();
-        addButton = (Button)findViewById(R.id.inventory_b_additem);
+        addButton = (Button)findViewById(R.id.cus_b_addcus);
         addButton.setOnClickListener(new OnClickListener() {
         	@Override
         	public void onClick(View v) {
         		// TODO Auto-generated method stub
-        		Intent goAddMoreProduct = new Intent(getApplicationContext(), InventoryAddMoreItemActivity.class);
-        		startActivity(goAddMoreProduct);
+        		 Toast.makeText(getApplicationContext(),"UnderConstruction", Toast.LENGTH_LONG)
+  		         .show();
+        		//Intent goAddMoreProduct = new Intent(getApplicationContext(), InventoryAddMoreItemActivity.class);
+        		//startActivity(goAddMoreProduct);
         	}
         });
     }  
  
     public void createItemListStringArr(){
-    	if (inventory.getItemList().size()!=0){
-        	inventoryListStringArr = new String[inventory.getItemList().size()];
-        	for (int i = 0; i < inventoryListStringArr.length; i++) {
-    			inventoryListStringArr[i] =  "\nProduct Name: "+inventory.getItemList().get(i).getItemName().toString() +"\nSell Price: "
-    										+inventory.getItemList().get(i).getItemPrice();
+    	if (customerList.getCustomerList().size()!=0){
+        	customerListStringArr = new String[customerList.getCustomerList().size()];
+        	for (int i = 0; i < customerListStringArr.length; i++) {
+    			customerListStringArr[i] =  "\nName: "+customerList.getCustomerList().get(i).getCusName().toString() +"\nPhoneNo.: "
+    										+customerList.getCustomerList().get(i).getCusPhoneNo();
     		}
         	
-        	allItemList = (ListView)findViewById(R.id.inventory_itemlist);
-    		ArrayAdapter<String> itemListAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, inventoryListStringArr);
-    		allItemList.setAdapter(itemListAdapter); 
-    		allItemList.setOnItemClickListener(new OnItemClickListener() {
+        	allCustomerList = (ListView)findViewById(R.id.inventory_itemlist);
+    		ArrayAdapter<String> itemListAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, customerListStringArr);
+    		allCustomerList.setAdapter(itemListAdapter); 
+    		allCustomerList.setOnItemClickListener(new OnItemClickListener() {
 
     		@Override
     		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
     				// TODO Auto-generated method stub
     				
     				int itemPosition = position;
-    				String  itemValue = (String)allItemList.getItemAtPosition(position);            
+    				String  itemValue = (String)allCustomerList.getItemAtPosition(position);            
     		        // Show Alert 
     		        Toast.makeText(getApplicationContext(),
-    		        "Position :"+ (itemPosition+1) +"\nQuantity : "+inventory.getItemByPostion(position).getItemQnty()+"\nBrand : "
-    		        +inventory.getItemByPostion(position).getItemBrand() , Toast.LENGTH_LONG)
+    		        		"\nName: "+customerList.getCustomerList().get(itemPosition).getCusName().toString() +"\nPhoneNo.: "
+									+customerList.getCustomerList().get(itemPosition).getCusPhoneNo() , Toast.LENGTH_LONG)
     		        .show();
     			}
     		});

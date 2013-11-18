@@ -7,13 +7,13 @@ import java.util.List;
 public class MockupCustomerList implements CustomerList{
 	
 	private static CustomerList customerList = null;
-	private List<Customer> cusList = null;
+	private static List<Customer> cusList = null;
 	
 	private MockupCustomerList(){
 		
 	}
 	
-	public CustomerList getInstance(){
+	public static CustomerList getInstance(){
 		if (customerList == null) {
 			customerList = new MockupCustomerList();
 			cusList = new ArrayList<Customer>();

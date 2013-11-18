@@ -91,8 +91,8 @@ public class SaleMainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Toast.makeText(getApplicationContext(), "UnderConstruction",
-						Toast.LENGTH_LONG).show();
+				Intent goCusPage = new Intent(getApplicationContext(),CustomerMainActivity.class);
+    			startActivity(goCusPage);
 			}
 		});
 

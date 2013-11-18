@@ -43,21 +43,21 @@
             android:textSize="12sp" />
     </LinearLayout>
     
-     <LinearLayout
+      <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:gravity="center"
-        android:orientation="horizontal" >
+        android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/textView1"
-            android:layout_width="match_parent"
+            android:id="@+id/cus_t_cuslist"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.50"
-            android:text="Large Text"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    </LinearLayout>
+            android:text="Customer List"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="30sp" />
+     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -65,7 +65,7 @@
         android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/inventory_b_additem"
+            android:id="@+id/cus_b_addcus"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_weight="0.50"
@@ -73,7 +73,7 @@
             android:textSize="12sp" />
 
         <Button
-            android:id="@+id/inventory_b_search"
+            android:id="@+id/cus_t_search"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_weight="0.50"
@@ -87,7 +87,7 @@
         android:orientation="horizontal" >
 
         <ListView
-            android:id="@+id/inventory_itemlist"
+            android:id="@+id/cus_list_itemlist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 

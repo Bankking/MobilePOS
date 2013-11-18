@@ -87,8 +87,8 @@ public class MainActivity extends Activity {
     		@Override
     		public void onClick(View v) {
     			// TODO Auto-generated method stub
-    			Intent goCusPage = new Intent(getApplicationContext(),CustomerMainActivity.class);
-    			startActivity(goCusPage);
+    			Intent goSalePage = new Intent(getApplicationContext(),CustomerMainActivity.class);
+    			startActivity(goSalePage);
     		}
         });
         

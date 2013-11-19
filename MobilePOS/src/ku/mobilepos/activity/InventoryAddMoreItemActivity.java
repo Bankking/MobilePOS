@@ -2,9 +2,9 @@ package ku.mobilepos.activity;
 
 import java.util.List;
 
+import ku.mobilepos.controller.CartController;
+import ku.mobilepos.controller.InventoryController;
 import ku.mobilepos.domain.Inventory;
-import ku.mobilepos.domain.Item;
-import ku.mobilepos.domain.MockupInventory;
 
 
 import com.example.mobilepos.R;
@@ -63,7 +63,7 @@ public class InventoryAddMoreItemActivity extends Activity {
 	/** button to scan product by using barcode scanner */
 	private Button scanBtn;
 	
-	private Item newItem;
+	private CartController newItem;
 	/** create inventory */
 	private Inventory inventory;
 	
@@ -74,9 +74,9 @@ public class InventoryAddMoreItemActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.inventory_additem);
-		inventory = MockupInventory.getInstance();
+		inventory = InventoryController.getInstance();
 		//itemList = inventory.getItemList();
-		newItem = new Item();
+		newItem = new CartController();
 		createAllFindViewById();
 		setAllEditTextToOneLine();
         /*scanBtn.setOnClickListener(new OnClickListener() {
@@ -185,7 +185,7 @@ public class InventoryAddMoreItemActivity extends Activity {
 					
 					//newItem.setItemId(itemProductId.getText().toString());
 					if (inventory.getItemById(itemProductId.getText().toString())!=null){
-						Item item = inventory.getItemById(itemProductId.getText().toString());
+						CartController item = inventory.getItemById(itemProductId.getText().toString());
 						itemName.setText(item.getItemName());
 						itemBrand.setText(item.getItemBrand());
 						itemQntyType.setText(item.getItemBuyPiece());

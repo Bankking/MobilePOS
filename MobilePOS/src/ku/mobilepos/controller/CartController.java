@@ -1,6 +1,6 @@
-package ku.mobilepos.domain;
+package ku.mobilepos.controller;
 
-public class Item {
+public class CartController {
 	private String itemId;
 	private String itemName;
 	private String itemBrand;

@@ -2,8 +2,8 @@ package ku.mobilepos.activity;
 
 import com.example.mobilepos.R;
 
+import ku.mobilepos.domain.Customer;
 import ku.mobilepos.domain.CustomerList;
-import ku.mobilepos.domain.MockupCustomerList;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,7 +30,7 @@ public class CustomerMainActivity extends Activity {
 	
 	/** list of product */
 	private ListView allCustomerList;
-	private CustomerList customerList;
+	private Customer customerList;
 	private String[] customerListStringArr;
 	
 	@Override
@@ -85,7 +85,7 @@ public class CustomerMainActivity extends Activity {
 	    		}
 	        });
 	        
-	        customerList = MockupCustomerList.getInstance();
+	        customerList = CustomerList.getInstance();
 	        createItemListStringArr();
 	        addButton = (Button)findViewById(R.id.cus_b_addcus);
 	        addButton.setOnClickListener(new OnClickListener() {

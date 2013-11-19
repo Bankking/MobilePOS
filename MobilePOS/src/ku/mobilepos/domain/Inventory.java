@@ -2,14 +2,16 @@ package ku.mobilepos.domain;
 
 import java.util.List;
 
+import ku.mobilepos.controller.CartController;
+
 
 public interface Inventory {
-	public void addItem(Item i);
+	public void addItem(CartController i);
 	public void removeItem();
-	public Item getItemByName(String itemName);
-	public Item getItemById(String itemId);
-	public Item getItemByPostion(int i);
-	public List<Item> getItemList();
+	public CartController getItemByName(String itemName);
+	public CartController getItemById(String itemId);
+	public CartController getItemByPostion(int i);
+	public List<CartController> getItemList();
 	public boolean isEmpty();
 
 	

@@ -1,30 +1,32 @@
-package ku.mobilepos.domain;
+package ku.mobilepos.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import ku.mobilepos.domain.Inventory;
 
-public class MockupInventory implements Inventory {
-	private List<Item> itemList = null;
+
+public class InventoryController implements Inventory {
+	private List<CartController> itemList = null;
 	private static Inventory inventory = null;
 	
-	private MockupInventory(){
+	private InventoryController(){
 		
 	}
 	public static Inventory getInstance(){
 		
-		if (inventory == null) inventory = new MockupInventory();
+		if (inventory == null) inventory = new InventoryController();
 		return inventory;
 		
 	}
 	
-	public List<Item> getItemList(){
-		if (itemList == null) itemList = new ArrayList<Item>();
+	public List<CartController> getItemList(){
+		if (itemList == null) itemList = new ArrayList<CartController>();
 		return itemList;
 	}
 	
 	@Override
-	public void addItem(Item i) {
+	public void addItem(CartController i) {
 		// TODO Auto-generated method stub
 		itemList.add(i);
 	}
@@ -36,7 +38,7 @@ public class MockupInventory implements Inventory {
 	}
 
 	@Override
-	public Item getItemByName(String itemName) {
+	public CartController getItemByName(String itemName) {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < itemList.size(); i++) {
 			if (itemList.get(i).getItemName().equals(itemName)){
@@ -47,7 +49,7 @@ public class MockupInventory implements Inventory {
 	}
 	
 	@Override
-	public Item getItemById(String itemId) {
+	public CartController getItemById(String itemId) {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < itemList.size(); i++) {
 			if (itemList.get(i).getItemId().equals(itemId)){
@@ -57,7 +59,7 @@ public class MockupInventory implements Inventory {
 		return null;
 	}
 	
-	public Item getItemByPostion(int i) {
+	public CartController getItemByPostion(int i) {
 		// TODO Auto-generated method stub
 		
 		return itemList.get(i);

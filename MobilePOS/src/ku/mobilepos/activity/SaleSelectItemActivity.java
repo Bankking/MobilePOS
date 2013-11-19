@@ -2,10 +2,10 @@ package ku.mobilepos.activity;
 
 import java.util.List;
 
+import ku.mobilepos.controller.CartController;
+import ku.mobilepos.controller.InventoryController;
 import ku.mobilepos.domain.Cart;
 import ku.mobilepos.domain.Inventory;
-import ku.mobilepos.domain.Item;
-import ku.mobilepos.domain.MockupInventory;
 
 
 import com.example.mobilepos.R;
@@ -28,7 +28,7 @@ public class SaleSelectItemActivity extends Activity {
 	private Inventory inventory;
 	private String[] inventoryListStringArr;
 	private Cart cart;
-	private List<Item> itemInCart;
+	private List<CartController> itemInCart;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class SaleSelectItemActivity extends Activity {
 		cart = Cart.getCartInstance();
 		itemInCart = cart.getItemListInCart();
 		cancelButton = (Button)findViewById(R.id.sale_iii_b_cancel);	
-		inventory = MockupInventory.getInstance();  
+		inventory = InventoryController.getInstance();  
 		createItemListStringArr();
 		
 		cancelButton.setOnClickListener(new OnClickListener() {

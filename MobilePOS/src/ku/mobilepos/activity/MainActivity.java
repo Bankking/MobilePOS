@@ -1,8 +1,8 @@
 package ku.mobilepos.activity;
 
 
+import ku.mobilepos.controller.InventoryController;
 import ku.mobilepos.domain.Inventory;
-import ku.mobilepos.domain.MockupInventory;
 
 
 import com.example.mobilepos.R;
@@ -92,7 +92,7 @@ public class MainActivity extends Activity {
     		}
         });
         
-        inventory = MockupInventory.getInstance();
+        inventory = InventoryController.getInstance();
         createItemListStringArr();
         addButton = (Button)findViewById(R.id.inventory_b_additem);
         addButton.setOnClickListener(new OnClickListener() {

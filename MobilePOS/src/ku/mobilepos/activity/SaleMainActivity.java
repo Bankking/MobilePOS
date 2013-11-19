@@ -2,10 +2,10 @@ package ku.mobilepos.activity;
 
 import java.util.List;
 
+import ku.mobilepos.controller.CartController;
+import ku.mobilepos.controller.InventoryController;
 import ku.mobilepos.domain.Cart;
 import ku.mobilepos.domain.Inventory;
-import ku.mobilepos.domain.Item;
-import ku.mobilepos.domain.MockupInventory;
 
 import com.example.mobilepos.R;
 
@@ -53,7 +53,7 @@ public class SaleMainActivity extends Activity {
 		customerButton = (Button) findViewById(R.id.customer);
 		confirmButton = (Button) findViewById(R.id.sale_main_b_confirmsell);
 		clearButton = (Button) findViewById(R.id.sale_main_b_cancel);
-		inventory = MockupInventory.getInstance();
+		inventory = InventoryController.getInstance();
 		cart = Cart.getCartInstance();
 		createItemListStringArr();
 		

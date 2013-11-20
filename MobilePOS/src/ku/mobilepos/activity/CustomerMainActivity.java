@@ -17,7 +17,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class CustomerMainActivity extends Activity {
-	/** add button for add product to sale list */
+	/** add button for add customer to customer list */
 	private Button addButton;
 	/** inventory button for go to inventory */
 	private Button inventoryButton;
@@ -28,7 +28,7 @@ public class CustomerMainActivity extends Activity {
 	/** history button */
 	private Button historyButton;
 	
-	/** list of product */
+	/** list of customer */
 	private ListView allCustomerList;
 	private Customer customerList;
 	private String[] customerListStringArr;
@@ -92,10 +92,8 @@ public class CustomerMainActivity extends Activity {
 	        	@Override
 	        	public void onClick(View v) {
 	        		// TODO Auto-generated method stub
-	        		 Toast.makeText(getApplicationContext(),"UnderConstruction", Toast.LENGTH_LONG)
-	  		         .show();
-	        		//Intent goAddMoreProduct = new Intent(getApplicationContext(), InventoryAddMoreItemActivity.class);
-	        		//startActivity(goAddMoreProduct);
+	        		Intent goAddNewCus = new Intent(getApplicationContext(),CustomerAddNewCustomerActivity.class);
+	    			startActivity(goAddNewCus);
 	        	}
 	        });
 	    }  

@@ -117,7 +117,7 @@ public class SaleSelectItemActivity extends Activity {
     			
     			cart.addToCart(inventory.getItemByPostion(itemPosition));
     			// Show Alert 
-    			Toast.makeText(getApplicationContext(), "Add "+ inventory.getItemList().get(position).getItemName() +" to Cart", Toast.LENGTH_LONG)
+    			Toast.makeText(getApplicationContext(), "Add "+ inventory.getItemList().get(position).getItemName() +" to Sale list", Toast.LENGTH_LONG)
     			.show();			
     		}
     	});

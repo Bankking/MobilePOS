@@ -18,15 +18,21 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class SaleSelectItemActivity extends Activity {
 	private Button cancelButton;
-	private ListView itemInInventory;
+	private Button searchButton;
+	private EditText search;
+	private ListView itemInventory;
+	//private ListView itemInInventory;
 	private Inventory inventory;
 	private String[] inventoryListStringArr;
+	private String[] inventoryString;
 	private Cart cart;
 	private List<CartController> itemInCart;
 	
@@ -37,9 +43,16 @@ public class SaleSelectItemActivity extends Activity {
 		setContentView(R.layout.sale_item_in_inventory);
 		cart = Cart.getCartInstance();
 		itemInCart = cart.getItemListInCart();
+		
+		// Button
 		cancelButton = (Button)findViewById(R.id.sale_iii_b_cancel);	
+		searchButton = (Button) findViewById(R.id.sale_iii_search);
+		
+		// Text view
+		search = (EditText) findViewById(R.id.sale_iii_searchText);
+		
 		inventory = InventoryController.getInstance();  
-		createItemListStringArr();
+		//createItemListStringArr();
 		
 		cancelButton.setOnClickListener(new OnClickListener() {
 			
@@ -51,9 +64,44 @@ public class SaleSelectItemActivity extends Activity {
     			startActivity(goSaleMain);
 			}
 		});
+	
+	
+		searchButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if(search.getText().toString().equals(""))
+				{
+					Toast.makeText(getApplicationContext(),"Please enter product ID.", Toast.LENGTH_LONG)
+	  		        .show();
+				}
+				else
+				{
+					if (inventory.getItemList().size()!=0){
+			    		inventoryListStringArr = new String[inventory.getItemList().size()];
+			    		inventoryString = new String[1];
+			    		boolean haveProduct = false;
+			    		for (int i = 0; i < inventoryListStringArr.length; i++) {
+			    			if(search.getText().toString().equals(inventory.getItemList().get(i).getItemId()))
+			    			{
+			    				inventoryString[0] = "Product name: " + inventory.getItemList().get(i).getItemName()+"\nQuantity: "+inventory.getItemList().get(i).getItemQnty();
+			    				haveProduct = true;
+			    				break;
+			    			}
+			    		}
+			    		
+			    		if(haveProduct == false)
+			    		{
+			    			Toast.makeText(getApplicationContext(),"Inventory don't have this product.", Toast.LENGTH_LONG)
+			  		        .show();
+			    		}
+			    		createItemString(inventoryString);
+					}
+				}
+			}
+		});
 	}
 	//create the item list
-	public void createItemListStringArr(){
+	/*public void createItemListStringArr(){
     	if (inventory.getItemList().size()!=0){
     		inventoryListStringArr = new String[inventory.getItemList().size()];
     		for (int i = 0; i < inventoryListStringArr.length; i++) {
@@ -75,5 +123,23 @@ public class SaleSelectItemActivity extends Activity {
     			}
     		});
     	}
+    }*/
+	
+	public void createItemString(String[] item){
+        	
+    	itemInventory = (ListView)findViewById(R.id.sale_iii_item);
+    	ArrayAdapter<String> itemListAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, inventoryString);
+    	itemInventory.setAdapter(itemListAdapter); 
+    	itemInventory.setOnItemClickListener(new OnItemClickListener() {
+
+    		//check the item on inventory and add to cart
+    		@Override
+    		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+    			cart.addToCart(inventory.getItemList().get(position));
+    			// Show Alert 
+    			Toast.makeText(getApplicationContext(), "Add "+ inventory.getItemList().get(position).getItemName() +" to Cart", Toast.LENGTH_LONG)
+    			.show();			
+    		}
+    	});
     }
 }

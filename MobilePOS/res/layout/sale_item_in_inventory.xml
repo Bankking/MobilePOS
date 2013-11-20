@@ -15,7 +15,7 @@
             android:id="@+id/sale_iii_t_select"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Select item below"
+            android:text="Add item to POS"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textSize="30sp" />
 
@@ -39,7 +39,7 @@
                 android:layout_height="30dp"
                
                 android:text="Back to cart"
-                 android:textSize="10sp" />
+                android:textSize="10sp" />
 
         </LinearLayout>
 
@@ -48,19 +48,56 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center|left"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|left" >
+
+            <TextView
+                android:id="@+id/sale_iii_enter_produect_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enter product ID: "
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/sale_iii_searchText"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:ems="10" />
+
+            <Button
+                android:id="@+id/sale_iii_search"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:text="Search"
+                android:textSize="10sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom|end"
         android:orientation="horizontal" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
-
-            <ListView
-                android:id="@+id/sale_iii_itemlist"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
-            </ListView>
         </LinearLayout>
     </LinearLayout>
+
+    <ListView
+        android:id="@+id/sale_iii_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
 
 </LinearLayout>

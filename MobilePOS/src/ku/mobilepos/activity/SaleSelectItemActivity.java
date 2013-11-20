@@ -33,6 +33,7 @@ public class SaleSelectItemActivity extends Activity {
 	private String[] inventoryListStringArr;
 	private String[] inventoryString;
 	private Cart cart;
+	private int itemPosition;
 	
 	private List<CartController> itemInCart;
 	
@@ -78,12 +79,13 @@ public class SaleSelectItemActivity extends Activity {
 				{
 					if (inventory.getItemList().size()!=0){
 			    		inventoryListStringArr = new String[inventory.getItemList().size()];
-			    		inventoryString = new String[inventory.getItemList().size()];
+			    		inventoryString = new String[1];
 			    		boolean haveProduct = false;
 			    		for (int i = 0; i < inventoryListStringArr.length; i++) {
 			    			if(search.getText().toString().equals(inventory.getItemList().get(i).getItemId()))
 			    			{
-			    				inventoryString[i] = "Product name: " + inventory.getItemList().get(i).getItemName()+"\nQuantity: "+inventory.getItemList().get(i).getItemQnty();
+			    				itemPosition = i;
+			    				inventoryString[0] = "Product name: " + inventory.getItemList().get(i).getItemName()+"\nQuantity: "+inventory.getItemList().get(i).getItemQnty();
 			    				haveProduct = true;
 			    				break;
 			    			}
@@ -112,7 +114,8 @@ public class SaleSelectItemActivity extends Activity {
     		//check the item on inventory and add to cart
     		@Override
     		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-    			cart.addToCart(inventory.getItemList().get(position));
+    			
+    			cart.addToCart(inventory.getItemByPostion(itemPosition));
     			// Show Alert 
     			Toast.makeText(getApplicationContext(), "Add "+ inventory.getItemList().get(position).getItemName() +" to Cart", Toast.LENGTH_LONG)
     			.show();			

@@ -98,17 +98,17 @@ public class CustomerMainActivity extends Activity {
 	        });
 	    }  
 	 
-	    public void createItemListStringArr(){
+	 public void createItemListStringArr(){
 	    	if (customerList.getCustomerList().size()!=0){
 	        	customerListStringArr = new String[customerList.getCustomerList().size()];
 	        	for (int i = 0; i < customerListStringArr.length; i++) {
-	    			customerListStringArr[i] =  "\nName: "+customerList.getCustomerList().get(i).getCusName().toString() +"\nPhoneNo.: "
+	    			customerListStringArr[i] =  "\nName: "+customerList.getCustomerList().get(i).getCusName().toString() +"\nPhone No.: "
 	    										+customerList.getCustomerList().get(i).getCusPhoneNo();
 	    		}
 	        	
 	        	allCustomerList = (ListView)findViewById(R.id.inventory_itemlist);
-	    		ArrayAdapter<String> itemListAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, customerListStringArr);
-	    		allCustomerList.setAdapter(itemListAdapter); 
+	    		ArrayAdapter<String> cusListAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, customerListStringArr);
+	    		allCustomerList.setAdapter(cusListAdapter); 
 	    		allCustomerList.setOnItemClickListener(new OnItemClickListener() {
 
 	    		@Override
@@ -119,14 +119,12 @@ public class CustomerMainActivity extends Activity {
 	    				String  itemValue = (String)allCustomerList.getItemAtPosition(position);            
 	    		        // Show Alert 
 	    		        Toast.makeText(getApplicationContext(),
-	    		        		"\nName: "+customerList.getCustomerList().get(itemPosition).getCusName().toString() +"\nPhoneNo.: "
-										+customerList.getCustomerList().get(itemPosition).getCusPhoneNo() , Toast.LENGTH_LONG)
+	    		        "Click" , Toast.LENGTH_LONG)
 	    		        .show();
 	    			}
 	    		});
 	        }
 	    }
-
 
 		
 		

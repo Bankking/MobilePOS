@@ -107,8 +107,8 @@ public class CustomerMainActivity extends Activity {
 	    		}
 	        	
 	        	allCustomerList = (ListView)findViewById(R.id.inventory_itemlist);
-	    		ArrayAdapter<String> cusListAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, customerListStringArr);
-	    		allCustomerList.setAdapter(cusListAdapter); 
+	        	ArrayAdapter<String> itemListAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, customerListStringArr);
+	    		allCustomerList.setAdapter(itemListAdapter); 
 	    		allCustomerList.setOnItemClickListener(new OnItemClickListener() {
 
 	    		@Override

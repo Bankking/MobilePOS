@@ -35,7 +35,7 @@ public class CustomerMainActivity extends Activity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+	
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.customer_main);
 	        
@@ -48,7 +48,7 @@ public class CustomerMainActivity extends Activity {
 	        inventoryButton.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					// TODO Auto-generated method stub
+				
 					Intent goInventoryPage = new Intent(getApplicationContext(),MainActivity.class);
 	    			startActivity(goInventoryPage);
 				}
@@ -61,7 +61,7 @@ public class CustomerMainActivity extends Activity {
 	        saleButton.setOnClickListener(new OnClickListener() {  	   
 	    		@Override
 	    		public void onClick(View v) {
-	    			// TODO Auto-generated method stub
+	    			
 	    			Intent goSalePage = new Intent(getApplicationContext(),SaleMainActivity.class);
 	    			startActivity(goSalePage);
 	    		}
@@ -70,7 +70,7 @@ public class CustomerMainActivity extends Activity {
 	        historyButton.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					 // TODO Auto-generated method stub
+					
 					 Toast.makeText(getApplicationContext(),"UnderConstruction", Toast.LENGTH_LONG)
 	  		         .show();
 				}
@@ -79,7 +79,7 @@ public class CustomerMainActivity extends Activity {
 	        customerButton.setOnClickListener(new OnClickListener() {
 	    		@Override
 	    		public void onClick(View v) {
-	    			// TODO Auto-generated method stub
+	    			
 	    			Toast.makeText(getApplicationContext(),"Your current page is already Customer", Toast.LENGTH_LONG)
 	  		        .show();
 	    		}
@@ -91,7 +91,7 @@ public class CustomerMainActivity extends Activity {
 	        addButton.setOnClickListener(new OnClickListener() {
 	        	@Override
 	        	public void onClick(View v) {
-	        		// TODO Auto-generated method stub
+	        	
 	        		Intent goAddNewCus = new Intent(getApplicationContext(),CustomerAddNewCustomerActivity.class);
 	    			startActivity(goAddNewCus);
 	        	}
@@ -106,17 +106,17 @@ public class CustomerMainActivity extends Activity {
 	    										+customerList.getCustomerList().get(i).getCusPhoneNo();
 	    		}
 	        	
-	        	allCustomerList = (ListView)findViewById(R.id.inventory_itemlist);
+	        	allCustomerList = (ListView)findViewById(R.id.cus_list_itemlist);
 	        	ArrayAdapter<String> itemListAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, customerListStringArr);
 	    		allCustomerList.setAdapter(itemListAdapter); 
 	    		allCustomerList.setOnItemClickListener(new OnItemClickListener() {
 
 	    		@Override
 	    		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-	    				// TODO Auto-generated method stub
+	    			
 	    				
-	    				int itemPosition = position;
-	    				String  itemValue = (String)allCustomerList.getItemAtPosition(position);            
+	    			
+	    				           
 	    		        // Show Alert 
 	    		        Toast.makeText(getApplicationContext(),
 	    		        "Click" , Toast.LENGTH_LONG)

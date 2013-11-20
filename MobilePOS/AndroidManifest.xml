@@ -22,12 +22,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="ku.mobilepos.activity.InventoryAddMoreItemActivity"></activity>
-        <activity android:name="ku.mobilepos.activity.InventoryShowItemInfoActivity"></activity>
-        <activity android:name="ku.mobilepos.activity.SaleMainActivity"></activity>
-        <activity android:name="ku.mobilepos.activity.SaleSelectItemActivity"></activity>
-          <activity android:name="ku.mobilepos.activity.CustomerMainActivity"></activity>
-             <activity android:name="ku.mobilepos.activity.CustomerAddNewCustomerActivity"></activity>
+        <activity android:name="ku.mobilepos.activity.InventoryAddMoreItemActivity" >
+        </activity>
+        <activity android:name="ku.mobilepos.activity.InventoryShowItemInfoActivity" >
+        </activity>
+        <activity android:name="ku.mobilepos.activity.SaleMainActivity" >
+        </activity>
+        <activity android:name="ku.mobilepos.activity.SaleSelectItemActivity" >
+        </activity>
+        <activity android:name="ku.mobilepos.activity.CustomerMainActivity" >
+        </activity>
+        <activity android:name="ku.mobilepos.activity.CustomerAddNewCustomerActivity" >
+        </activity>
     </application>
 
 </manifest>

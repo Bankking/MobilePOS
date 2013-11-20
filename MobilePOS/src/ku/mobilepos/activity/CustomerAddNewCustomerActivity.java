@@ -33,6 +33,7 @@ public class CustomerAddNewCustomerActivity extends Activity {
 		setContentView(R.layout.customer_addnewcus);
 
 		customerList = CustomerList.getInstance();
+		setupAddNewCustomerActivity();
 		
 		confirmButton.setOnClickListener(new OnClickListener() {
 
@@ -70,6 +71,8 @@ public class CustomerAddNewCustomerActivity extends Activity {
 	public void setupAddNewCustomerActivity(){
 		cusName = (EditText) findViewById(R.id.customer_f_name);
 		cusPhoneNo = (EditText) findViewById(R.id.customer_addnew_f_phone);
+		confirmButton = (Button) findViewById(R.id.customer_addnew_b_confirm);
+		cancelButton = (Button) findViewById(R.id.customer_addnew_f_cancel);
 	}
 
 }

@@ -7,13 +7,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_vertical"
+        android:gravity="center_vertical|top"
         android:orientation="vertical" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:gravity="center|top"
             android:orientation="horizontal" >
 
             <TextView
@@ -119,30 +119,10 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
 
-            <TextView
-                android:id="@+id/inventory_amp_t_qnty"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Buy Quantity :"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
             <RadioGroup
                 android:id="@+id/inventory_amp_rbg_buyqnty"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" >
-
-                <RadioButton
-                    android:id="@+id/inventory_amp_rb_box"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:text="Box(es)" />
-
-                <RadioButton
-                    android:id="@+id/inventory_amp_rb_piece"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Piece(s)" />
             </RadioGroup>
         </LinearLayout>
 		
@@ -170,7 +150,7 @@
                 android:id="@+id/inventory_amp_t_buyqntytype"
                 android:layout_width="89dp"
                 android:layout_height="wrap_content"
-                android:text="Box(es)"
+                android:text="Piece(s)"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
         </LinearLayout>
           <LinearLayout
@@ -200,23 +180,6 @@
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
              android:orientation="horizontal" >
-
-             <TextView
-                 android:id="@+id/inventory_amp_t_pieceperbox"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:text="Pieces/Box :"
-                 android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <EditText
-                android:id="@+id/inventory_amp_f_pieceperbox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="number" >
-
-                <requestFocus />
-            </EditText>
 
         </LinearLayout>
 

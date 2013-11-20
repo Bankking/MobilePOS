@@ -32,14 +32,11 @@ public class InventoryAddMoreItemActivity extends Activity {
 	/** cost of product */
 	private EditText itemPrice;
 	/** cost of one product per box */
-	private EditText itemPiecePerBox;
+	//private EditText itemPiecePerBox;
 	/** id of product */
 	private EditText itemProductId;
 	/** cost of product per box */
 	private EditText itemBuyPricePerBox;
-	
-	/** product quantity group */
-	private RadioGroup itemQntyGroup;
 	
 	/** text view of product */
 	private TextView itemBuyPriceCal;
@@ -138,8 +135,7 @@ public class InventoryAddMoreItemActivity extends Activity {
 				// TODO Auto-generated method stub
 				if(itemName.getText().toString().equals("") 
 				|| itemBrand.getText().toString().equals("") 
-				|| itemPrice.getText().toString().equals("") 
-				|| itemPiecePerBox.getText().toString().equals(""))
+				|| itemPrice.getText().toString().equals("") )
 				{
 					Toast.makeText(getApplicationContext(),"Please fill all blank.", Toast.LENGTH_LONG)
 	  		        .show();
@@ -152,7 +148,7 @@ public class InventoryAddMoreItemActivity extends Activity {
 				
 					
 					String totalPiece;
-					totalPiece = calculateTotalPiece(itemQntyType.getText().toString(), itemPiecePerBox.getText().toString());
+					totalPiece = calculateTotalPiece(itemQntyType.getText().toString());
 					newItem.setItemQnty(totalPiece);
 					
 					String totalPrice;
@@ -190,35 +186,10 @@ public class InventoryAddMoreItemActivity extends Activity {
 						itemBrand.setText(item.getItemBrand());
 						itemQntyType.setText(item.getItemBuyPiece());
 						itemBuyPricePerBox.setText(""+item.getItemBuyPriceBahtPerBox());
-						itemPiecePerBox.setText(""+item.getItemPiecePerBox());
+						//itemPiecePerBox.setText(""+item.getItemPiecePerBox());
 						itemBuyPriceCal.setText("  "+item.getItemPricePerPiece()+"  ");
 						itemPrice.setText(""+item.getItemPrice());
 					}
-				}
-			
-				
-			}
-		});
-		
-		/**
-		 * 
-		 */
-		itemQntyGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-
-			@Override
-			public void onCheckedChanged(RadioGroup group, int checkedId) {
-				RadioButton checkedRadioButton = (RadioButton) findViewById(checkedId);
-				itemBuyType.setText(checkedRadioButton.getText().toString());
-						
-				if (checkedRadioButton.getText().toString().equals("Piece(s)")) {
-					itemPiecePerBox.setText("non");
-					itemPiecePerBox.setEnabled(false);
-					itemBuyBahtPerType.setText("Baht/Piece :");
-				}
-				else if (checkedRadioButton.getText().toString().equals("Box(es)")) {
-					itemPiecePerBox.setText("");
-					itemPiecePerBox.setEnabled(true);
-					itemBuyBahtPerType.setText("Baht/Box :");
 				}
 			}
 		});
@@ -230,9 +201,9 @@ public class InventoryAddMoreItemActivity extends Activity {
 	 * @param piecePerBox is cost per box
 	 * @return a * b or total cost of all box
 	 */
-	public String calculateTotalPiece(String box, String piecePerBox){
-		int a = Integer.parseInt(box), b = Integer.parseInt(piecePerBox);
-		return a*b+"";
+	public String calculateTotalPiece(String box){
+		int a = Integer.parseInt(box);
+		return a+"";
 	}
 	
 	/**
@@ -266,7 +237,7 @@ public class InventoryAddMoreItemActivity extends Activity {
 		itemQntyType = (EditText) findViewById(R.id.inventory_amp_f_buyqntytype);
 		itemBrand = (EditText) findViewById(R.id.inventory_amp_f_brand);
 		itemPrice = (EditText) findViewById(R.id.inventory_amp_f_sellprice);
-		itemPiecePerBox = (EditText) findViewById(R.id.inventory_amp_f_pieceperbox);
+		//itemPiecePerBox = (EditText) findViewById(R.id.inventory_amp_f_pieceperbox);
 		itemProductId = (EditText) findViewById(R.id.inventory_amp_f_productid);
 		itemBuyPricePerBox = (EditText) findViewById(R.id.inventory_amp_f_buypricebathperbox);
 		
@@ -277,14 +248,12 @@ public class InventoryAddMoreItemActivity extends Activity {
 		calButton = (Button) findViewById(R.id.inventory_amp_b_calculate);
 		scanBtn = (Button)findViewById(R.id.scan_button);      
 		
-		//RadioGroup
-		itemQntyGroup = (RadioGroup) findViewById(R.id.inventory_amp_rbg_buyqnty);
-	
 		//TextView
 		itemBuyPriceCal = (TextView) findViewById(R.id.inventory_amp_t_calbuyprice);
 		itemBuyType = (TextView) findViewById(R.id.inventory_amp_t_buyqntytype);
-		itemBuyPriceText = (TextView) findViewById(R.id.inventory_amp_t_pieceperbox);
+		//itemBuyPriceText = (TextView) findViewById(R.id.inventory_amp_t_pieceperbox);
 		itemBuyBahtPerType = (TextView) findViewById(R.id.inventory_amp_t_buypricebathpertype);
+		itemBuyBahtPerType.setText("Baht/Piece :");
 		formatTxt = (TextView)findViewById(R.id.scan_format);
         contentTxt = (TextView)findViewById(R.id.scan_content);
 	}
@@ -296,7 +265,7 @@ public class InventoryAddMoreItemActivity extends Activity {
 	public void setAllEditTextToOneLine(){
 		setMaxLineText(itemName);
 		setMaxLineText(itemBrand);
-		setMaxLineText(itemPiecePerBox);
+		//setMaxLineText(itemPiecePerBox);
 		setMaxLineText(itemPrice);
 		setMaxLineText(itemQntyType);
 		setMaxLineText(itemProductId);

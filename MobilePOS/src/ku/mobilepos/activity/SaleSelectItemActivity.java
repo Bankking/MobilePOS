@@ -10,6 +10,7 @@ import ku.mobilepos.domain.Inventory;
 
 import com.example.mobilepos.R;
 
+import android.R.integer;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -116,9 +117,20 @@ public class SaleSelectItemActivity extends Activity {
     		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
     			
     			cart.addToCart(inventory.getItemByPostion(itemPosition));
-    			// Show Alert 
-    			Toast.makeText(getApplicationContext(), "Add "+ inventory.getItemList().get(position).getItemName() +" to Sale list", Toast.LENGTH_LONG)
-    			.show();			
+    			int updateQuantity = inventory.getItemList().get(position).getItemQnty() - 1;
+    			if(updateQuantity >= 0)
+    			{
+    				inventory.getItemList().get(position).setItemQnty(Integer.toString(updateQuantity));
+    				// Show Alert 
+    				Toast.makeText(getApplicationContext(), "Add "+ inventory.getItemList().get(position).getItemName() +" to Sale list\n" + updateQuantity, Toast.LENGTH_LONG)
+    				.show();			
+    			}
+    			else
+    			{
+    				updateQuantity++;
+    				Toast.makeText(getApplicationContext(), "Your inventory don't have this product", Toast.LENGTH_LONG)
+    				.show();	
+    			}
     		}
     	});
     }

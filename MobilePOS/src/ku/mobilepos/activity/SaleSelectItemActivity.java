@@ -33,6 +33,7 @@ public class SaleSelectItemActivity extends Activity {
 	private String[] inventoryListStringArr;
 	private String[] inventoryString;
 	private Cart cart;
+	
 	private List<CartController> itemInCart;
 	
 	@Override
@@ -77,22 +78,23 @@ public class SaleSelectItemActivity extends Activity {
 				{
 					if (inventory.getItemList().size()!=0){
 			    		inventoryListStringArr = new String[inventory.getItemList().size()];
-			    		inventoryString = new String[1];
+			    		inventoryString = new String[inventory.getItemList().size()];
 			    		boolean haveProduct = false;
 			    		for (int i = 0; i < inventoryListStringArr.length; i++) {
 			    			if(search.getText().toString().equals(inventory.getItemList().get(i).getItemId()))
 			    			{
-			    				inventoryString[0] = "Product name: " + inventory.getItemList().get(i).getItemName()+"\nQuantity: "+inventory.getItemList().get(i).getItemQnty();
+			    				inventoryString[i] = "Product name: " + inventory.getItemList().get(i).getItemName()+"\nQuantity: "+inventory.getItemList().get(i).getItemQnty();
 			    				haveProduct = true;
 			    				break;
 			    			}
 			    		}
-			    		
+			    					    		
 			    		if(haveProduct == false)
 			    		{
 			    			Toast.makeText(getApplicationContext(),"Inventory don't have this product.", Toast.LENGTH_LONG)
 			  		        .show();
 			    		}
+			    		
 			    		createItemString(inventoryString);
 					}
 				}

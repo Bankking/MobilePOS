@@ -133,7 +133,7 @@
         <ListView
             android:id="@+id/sale_main_itemlist"
             android:layout_width="match_parent"
-            android:layout_height="328dp" >
+            android:layout_height="match_parent" >
 
         </ListView>
    

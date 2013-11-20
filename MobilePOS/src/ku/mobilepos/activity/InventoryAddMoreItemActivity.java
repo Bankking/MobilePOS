@@ -55,8 +55,6 @@ public class InventoryAddMoreItemActivity extends Activity {
 	private Button cancelButton;
 	/** button to check duplicate product */
 	private Button checkButton;
-	/** button to calculate total cost of product */
-	private Button calButton;
 	/** button to scan product by using barcode scanner */
 	private Button scanBtn;
 	
@@ -151,16 +149,16 @@ public class InventoryAddMoreItemActivity extends Activity {
 					totalPiece = calculateTotalPiece(itemQntyType.getText().toString());
 					newItem.setItemQnty(totalPiece);
 					
-					String totalPrice;
-					totalPrice = calculateTotalBuyBaht(itemQntyType.getText().toString(),itemBuyPricePerBox.getText().toString());
+					//String totalPrice;
+					//totalPrice = calculateTotalBuyBaht(itemQntyType.getText().toString(),itemBuyPricePerBox.getText().toString());
 					newItem.setItemBuyPiece(itemQntyType.getText().toString());
 					newItem.setItemPrice(itemPrice.getText().toString());
 					newItem.setItemBuyPriceBahtPerBox(itemBuyPricePerBox.getText().toString());
-					pricePerPiece = calculatePricePerPiece(Integer.parseInt(totalPiece), totalPrice);
+		//			pricePerPiece = calculatePricePerPiece(Integer.parseInt(totalPiece), totalPrice);
 		//			updatePricePerPiece(itemPiecePerBox);
-					itemBuyPriceCal.setText("  "+pricePerPiece+"  ");
-					newItem.setItemPricePerPiece(pricePerPiece);
-					newItem.setItemBuyBahtPerPiece(pricePerPiece);
+		//			itemBuyPriceCal.setText("  "+pricePerPiece+"  ");
+		//			newItem.setItemPricePerPiece(pricePerPiece);
+		//			newItem.setItemBuyBahtPerPiece(pricePerPiece);
 					inventory.addItem(newItem);
 					Intent goInventory = new Intent(getApplicationContext(),
 							MainActivity.class);
@@ -245,11 +243,9 @@ public class InventoryAddMoreItemActivity extends Activity {
 		confirmButton = (Button) findViewById(R.id.inventory_amp_b_confirm);
 		cancelButton = (Button) findViewById(R.id.inventory_amp_b_cancel);
 		checkButton = (Button) findViewById(R.id.inventory_amp_b_check);
-		calButton = (Button) findViewById(R.id.inventory_amp_b_calculate);
 		scanBtn = (Button)findViewById(R.id.scan_button);      
 		
 		//TextView
-		itemBuyPriceCal = (TextView) findViewById(R.id.inventory_amp_t_calbuyprice);
 		itemBuyType = (TextView) findViewById(R.id.inventory_amp_t_buyqntytype);
 		//itemBuyPriceText = (TextView) findViewById(R.id.inventory_amp_t_pieceperbox);
 		itemBuyBahtPerType = (TextView) findViewById(R.id.inventory_amp_t_buypricebathpertype);

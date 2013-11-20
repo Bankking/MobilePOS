@@ -183,45 +183,6 @@
 
         </LinearLayout>
 
-      
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:id="@+id/inventory_amp_t_buyprice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Buy ฺPrice :"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <TextView
-                android:id="@+id/inventory_amp_t_calbuyprice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="  -  "
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-          
-
-            <TextView
-                android:id="@+id/inventory_amp_t_buypriceperpiece"
-                android:layout_width="89dp"
-                android:layout_height="wrap_content"
-                android:text="Baht/Piece"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            <Button
-                android:id="@+id/inventory_amp_b_calculate"
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="32dp"
-                android:text="Calculate" />
-
-        </LinearLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

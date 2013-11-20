@@ -20,7 +20,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
@@ -100,30 +99,6 @@ public class SaleSelectItemActivity extends Activity {
 			}
 		});
 	}
-	//create the item list
-	/*public void createItemListStringArr(){
-    	if (inventory.getItemList().size()!=0){
-    		inventoryListStringArr = new String[inventory.getItemList().size()];
-    		for (int i = 0; i < inventoryListStringArr.length; i++) {
-    			inventoryListStringArr[i] =  "Product name: " + inventory.getItemList().get(i).getItemName()+"\nQuantity: "+inventory.getItemList().get(i).getItemQnty();
-    		}
-        	
-    		itemInInventory = (ListView)findViewById(R.id.sale_iii_itemlist);
-    		ArrayAdapter<String> itemListAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, inventoryListStringArr);
-    		itemInInventory.setAdapter(itemListAdapter); 
-    		itemInInventory.setOnItemClickListener(new OnItemClickListener() {
-
-    			//check the item on inventory and add to cart
-    			@Override
-    			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-    				cart.addToCart(inventory.getItemList().get(position));
-    				// Show Alert 
-    				Toast.makeText(getApplicationContext(), "Add "+ inventory.getItemList().get(position).getItemName() +" to Cart", Toast.LENGTH_LONG)
-    				.show();			
-    			}
-    		});
-    	}
-    }*/
 	
 	public void createItemString(String[] item){
         	

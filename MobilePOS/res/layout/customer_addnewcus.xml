@@ -66,13 +66,7 @@
                 android:layout_weight="1"
                 android:ems="10" />
             
-                <Button
-                android:id="@+id/customer_addnew_b_check"
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="wrap_content"
-                android:laayout_height="34dp"
-                android:text="Check" />
-            
+                
         	
         </LinearLayout>
 

@@ -22,7 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
-	/** add button for add product to cart */
+	/** add button for add product to sale list */
 	private Button addButton;
 	/** inventory button for go to inventory */
 	private Button inventoryButton;

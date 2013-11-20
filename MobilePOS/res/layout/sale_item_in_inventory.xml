@@ -15,7 +15,7 @@
             android:id="@+id/sale_iii_t_select"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add item to POS"
+            android:text="Add item to Sale List"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textSize="30sp" />
 

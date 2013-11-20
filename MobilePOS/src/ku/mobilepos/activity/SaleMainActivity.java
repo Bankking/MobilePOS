@@ -123,7 +123,7 @@ public class SaleMainActivity extends Activity {
     			startActivity(refreshCart);
 				Toast.makeText(
 						getApplicationContext(),
-						"Cart is reset.",
+						"Sale List is reset.",
 						Toast.LENGTH_SHORT).show();
 			}
 		});

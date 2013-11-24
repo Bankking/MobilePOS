@@ -117,12 +117,12 @@ public class SaleSelectItemActivity extends Activity {
     		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
     			
     			cart.addToCart(inventory.getItemByPostion(itemPosition));
-    			int updateQuantity = inventory.getItemList().get(position).getItemQnty() - 1;
+    			int updateQuantity = inventory.getItemList().get(itemPosition).getItemQnty() - 1;
     			if(updateQuantity >= 0)
     			{
-    				inventory.getItemList().get(position).setItemQnty(Integer.toString(updateQuantity));
+    				inventory.getItemList().get(itemPosition).setItemQnty(Integer.toString(updateQuantity));
     				// Show Alert 
-    				Toast.makeText(getApplicationContext(), "Add "+ inventory.getItemList().get(position).getItemName() +" to Sale list\n" + updateQuantity, Toast.LENGTH_LONG)
+    				Toast.makeText(getApplicationContext(), "Add "+ inventory.getItemList().get(itemPosition).getItemName() +" to Sale list\n" + updateQuantity, Toast.LENGTH_LONG)
     				.show();			
     			}
     			else

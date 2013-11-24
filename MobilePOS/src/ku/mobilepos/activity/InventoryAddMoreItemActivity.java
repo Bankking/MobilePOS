@@ -10,6 +10,8 @@ import ku.mobilepos.domain.Inventory;
 import com.example.mobilepos.R;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -143,26 +145,14 @@ public class InventoryAddMoreItemActivity extends Activity {
 					newItem.setItemId(itemProductId.getText().toString());
 					newItem.setItemName(itemName.getText().toString());
 					newItem.setItemBrand(itemBrand.getText().toString());
-				
-					
 					String totalPiece;
 					totalPiece = calculateTotalPiece(itemQntyType.getText().toString());
 					newItem.setItemQnty(totalPiece);
-					
-					//String totalPrice;
-					//totalPrice = calculateTotalBuyBaht(itemQntyType.getText().toString(),itemBuyPricePerBox.getText().toString());
 					newItem.setItemBuyPiece(itemQntyType.getText().toString());
 					newItem.setItemPrice(itemPrice.getText().toString());
 					newItem.setItemBuyPriceBahtPerBox(itemBuyPricePerBox.getText().toString());
-		//			pricePerPiece = calculatePricePerPiece(Integer.parseInt(totalPiece), totalPrice);
-		//			updatePricePerPiece(itemPiecePerBox);
-		//			itemBuyPriceCal.setText("  "+pricePerPiece+"  ");
-		//			newItem.setItemPricePerPiece(pricePerPiece);
-		//			newItem.setItemBuyBahtPerPiece(pricePerPiece);
 					inventory.addItem(newItem);
-					Intent goInventory = new Intent(getApplicationContext(),
-							MainActivity.class);
-					startActivity(goInventory);
+					ShowDialog();					
 				}
 			}
 		});
@@ -191,6 +181,37 @@ public class InventoryAddMoreItemActivity extends Activity {
 				}
 			}
 		});
+	}
+	
+	public void ShowDialog()
+	{
+        final AlertDialog.Builder dDialog = new AlertDialog.Builder(this);
+        final EditText input = new EditText(this);
+
+    	dDialog.setTitle("Phone number ");
+    	dDialog.setMessage("Please input your phone number :");
+    	dDialog.setIcon(android.R.drawable.stat_sys_upload_done); 
+    	dDialog.setView(input);
+    	
+    	// Ok
+    	dDialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+    		public void onClick(DialogInterface dialog, int whichButton) {
+    			String value = input.getText().toString();
+    			Intent goInventory = new Intent(getApplicationContext(),
+						MainActivity.class);	
+    			startActivity(goInventory);
+    		  }
+    		});
+    	
+    	// Cancel
+    	dDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+    		  public void onClick(DialogInterface dialog, int whichButton) {
+    			  String value = input.getText().toString();
+    		  }
+    		});
+    	
+    	dDialog.show();
+    	
 	}
 	
 	/**

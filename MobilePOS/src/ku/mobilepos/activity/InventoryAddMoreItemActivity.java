@@ -5,8 +5,6 @@ import java.util.List;
 import ku.mobilepos.controller.CartController;
 import ku.mobilepos.controller.InventoryController;
 import ku.mobilepos.domain.Inventory;
-
-
 import com.example.mobilepos.R;
 
 import android.app.Activity;
@@ -29,7 +27,7 @@ public class InventoryAddMoreItemActivity extends Activity {
 	private EditText itemName;
 	/** type of product quantity */ 
 	private EditText itemQntyType;
-	/** brand of product */
+	/** brand of product */	
 	private EditText itemBrand;
 	/** cost of product */
 	private EditText itemPrice;
@@ -67,6 +65,9 @@ public class InventoryAddMoreItemActivity extends Activity {
 	/** cost per piece */
 	private String pricePerPiece;
 
+	private Button buttonScan;
+	private static final int SCANNER_ACTIVITY_REQUESTCODE = 49374;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -76,39 +77,6 @@ public class InventoryAddMoreItemActivity extends Activity {
 		newItem = new CartController();
 		createAllFindViewById();
 		setAllEditTextToOneLine();
-        /*scanBtn.setOnClickListener(new OnClickListener() {
-	        @Override
-	        public void onClick(View v){
-	    		//check for scan button
-	    		if(v.getId()==R.id.scan_button){
-	    			//instantiate ZXing integration class
-	    			IntentIntegrator scanIntegrator = new IntentIntegrator(null);
-	    			//start scanning
-	    			scanIntegrator.initiateScan();
-	    		}
-	    	}
-    	});*/
-		
-		/*public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-			//retrieve result of scanning - instantiate ZXing object
-			IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
-			//check we have a valid result
-			if (scanningResult != null) {
-				//get content from Intent Result
-				String scanContent = scanningResult.getContents();
-				//get format name of data scanned
-				String scanFormat = scanningResult.getFormatName();
-				//output to UI
-				formatTxt.setText("FORMAT: "+scanFormat);
-				contentTxt.setText("CONTENT: "+scanContent);
-			}
-			else{
-				//invalid scan data or scan canceled
-				Toast toast = Toast.makeText(getApplicationContext(), 
-						"No scan data received!", Toast.LENGTH_SHORT);
-				toast.show();
-			}
-		}*/
         
 		/**
 		 * when select cancel button it will go back to inventory page
@@ -181,6 +149,11 @@ public class InventoryAddMoreItemActivity extends Activity {
 				}
 			}
 		});
+		
+		buttonScan = (Button) findViewById(R.id.buttonScan);
+		//OnClickListener scanListener = new ScanProduct(this);
+		//buttonScan.setOnClickListener(scanListener);
+		
 	}
 	
 	public void ShowDialog()
@@ -264,7 +237,7 @@ public class InventoryAddMoreItemActivity extends Activity {
 		confirmButton = (Button) findViewById(R.id.inventory_amp_b_confirm);
 		cancelButton = (Button) findViewById(R.id.inventory_amp_b_cancel);
 		checkButton = (Button) findViewById(R.id.inventory_amp_b_check);
-		scanBtn = (Button)findViewById(R.id.scan_button);      
+		scanBtn = (Button)findViewById(R.id.buttonScan);      
 		
 		//TextView
 		itemBuyType = (TextView) findViewById(R.id.inventory_amp_t_buyqntytype);

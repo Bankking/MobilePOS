@@ -26,6 +26,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 
+////////////////////////////////////////////////////////////////////////
+
                 <LinearLayout
                     android:id="@+id/tab1"
                     android:layout_width="match_parent"
@@ -75,7 +77,7 @@
                             android:id="@+id/textView12"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:paddingLeft="185dp" />
+                            android:paddingLeft="190dp" />
 
                         <ImageButton
                             android:id="@+id/sale_clear"
@@ -211,13 +213,31 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="20dp" />
 
+                        <ImageButton
+                            android:id="@+id/inventory_add"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@android:drawable/ic_menu_add" />
+
+                        <ImageButton
+                            android:id="@+id/inventory_add_scan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@android:drawable/ic_menu_edit" />
+
+                        <TextView
+                            android:id="@+id/text10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="10dp" />
+
                         <EditText
                             android:id="@+id/sale_add_search_edit"
-                            android:layout_width="280dp"
+                            android:layout_width="220dp"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:hint="search product id" 
-                            android:textSize="12sp">
+                            android:hint="searh product id"
+                            android:textSize="14sp">
 
                             <requestFocus />
                         </EditText>
@@ -248,25 +268,7 @@
                             android:id="@+id/textView8"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:paddingLeft="20dp" />
-
-                        <ImageButton
-                            android:id="@+id/inventory_add"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@android:drawable/ic_menu_add" />
-
-                        <ImageButton
-                            android:id="@+id/inventory_add_scan"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@android:drawable/ic_menu_edit" />
-
-                        <TextView
-                            android:id="@+id/textView9"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingLeft="218dp" />
+                            android:paddingLeft="310dp" />
 
                         <ImageButton
                             android:id="@+id/imageButton3"
